@@ -1,15 +1,3 @@
+#pragma once
 
 
-namespace KATA_0527
-{
-    int solution(int n)
-    {
-        int answer = 0;
-        // n 까지의 짝수 개수는 짝수인 경우 절반 아닌 경우
-        int evenCnt = n / 2; // 홀 수이던 짝수 이던 항상 짝수의 개수가 됨.
-        // 2부터 evenCnt * 2 까지 2씩 증가한 합 
-        int evenN = evenCnt * 2;
-        answer = evenCnt * (evenN + 2) / 2;
-        return answer;
-    }
-}
