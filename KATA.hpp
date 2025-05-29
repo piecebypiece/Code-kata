@@ -2,6 +2,7 @@
 
 template <typename T>
 class vector;
+class string;
 
 namespace KATA_0527
 {
@@ -13,4 +14,10 @@ namespace KATA_0528
     // 스레드 문제 문자열 회전
     void solution(std::string str);
     double solution(vector<int> numbers);
+}
+
+namespace KATA_0529
+{
+    
+    string solution(int num);
 }

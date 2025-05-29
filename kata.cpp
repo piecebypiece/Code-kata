@@ -1,12 +1,12 @@
 
-#include "KATA_0527.hpp"
 #include <string>
 #include <iostream>
 #include <vector>
 
-using namespace std;
+
 namespace KATA_0527
 {
+    //https://school.programmers.co.kr/learn/courses/30/lessons/120831
     int solution(int n)
     {
         int answer = 0;
@@ -21,6 +21,7 @@ namespace KATA_0527
 
 namespace KATA_0528
 {
+    using namespace std;
     // 스레드 문제 문자열 회전
     void solution(std::string str)
     {
@@ -58,3 +59,14 @@ namespace KATA_0528
         return answer;
     }
 }
+
+namespace KATA_0529
+{
+    using namespace std;
+    //https://school.programmers.co.kr/learn/courses/30/lessons/12937
+    string solution(int num)
+    {
+        string answer = (num & 1) == 1 ? "Odd" : "Even";
+        return answer;
+    }
+} 
