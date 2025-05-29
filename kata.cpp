@@ -83,4 +83,20 @@ namespace KATA_0529
         answer = (double)sum / arr.size();
         return answer;
     }
+    namespace SumNumberSeats
+    {
+        int solution(int n)
+        {
+            int answer = 0;
+
+            string str = to_string(n);
+
+            for (int i = 0; str.size(); i++)
+            {
+                answer += str[i] - '0'; // 문자 -> 숫자 변환
+            }
+
+            return answer;
+        }
+    }
 } 

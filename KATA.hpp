@@ -19,8 +19,11 @@ namespace KATA_0528
 
 namespace KATA_0529
 {
-    
+
     string solution(int num);
     double solution(vector<int> arr);
-
+    namespace SumNumberSeats 
+    {
+        int solution(int n);
+    }
 }
