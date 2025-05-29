@@ -23,7 +23,7 @@ namespace KATA_0529
     string solution(int num);
     double solution(vector<int> arr);
     namespace SumNumberSeats 
-    {
+    { // 함수 정의가 겹쳐서 네임스페이스 추가
         int solution(int n);
     }
 }
