@@ -6,6 +6,7 @@ class string;
 
 namespace KATA_0527
 {
+    //https://school.programmers.co.kr/learn/courses/30/lessons/120831
     int solution(int n);
 }
 
@@ -20,4 +21,6 @@ namespace KATA_0529
 {
     
     string solution(int num);
+    double solution(vector<int> arr);
+
 }

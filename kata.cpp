@@ -69,4 +69,18 @@ namespace KATA_0529
         string answer = (num & 1) == 1 ? "Odd" : "Even";
         return answer;
     }
+
+    // 배열 평균
+    double solution(vector<int> arr) 
+    {
+        double answer = 0;
+        int sum = 0;
+        for (auto iter = arr.begin(); iter != arr.end(); iter++)
+        {
+            sum += *iter;
+        }
+
+        answer = (double)sum / arr.size();
+        return answer;
+    }
 } 
