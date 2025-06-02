@@ -164,4 +164,25 @@ namespace KATA_0602
 			return 2022 - age + 1; // 만나이
 		}
 	}
+
+	namespace kata15
+	{
+		int solution(int n)
+		{
+			if (n % 2 == 1)
+				return 2;
+
+			int answer = n - 1;
+			int sqrtN = sqrt(n);
+			for (int i = 3; i <= sqrtN; i = i + 2)
+			{
+				if (n % i == 1)
+				{
+					answer = i;
+					break;
+				}
+			}
+			return answer;
+		}
+	}
 }

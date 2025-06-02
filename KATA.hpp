@@ -67,4 +67,9 @@ namespace KATA_0602
 	{
 		int solution(int age);
 	}
+
+	namespace kata15
+	{
+		int solution(int n);
+	}
 }
