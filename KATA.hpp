@@ -1,32 +1,70 @@
 #pragma once
+#include <vector>
 
-template <typename T>
-class vector;
 
-//namespace KATA_0527
-//{
-//    //https://school.programmers.co.kr/learn/courses/30/lessons/120831
-//    //int solution(int n);
-//}
-//
-//namespace KATA_0528
-//{
-//    // 스레드 문제 문자열 회전
-//    void solution(std::string str);
-//    double solution(vector<int> numbers);
-//}
+using std::string;
+using std::vector;
+
+namespace KATA_0527
+{
+	//https://school.programmers.co.kr/learn/courses/30/lessons/120831
+	//int solution(int n);
+}
+
+namespace KATA_0528
+{
+	// 스레드 문제 문자열 회전
+	namespace RotateStrings
+	{
+		void solution(string str);
+	}
+	namespace kata10
+	{
+		double solution(vector<int> numbers);
+	}
+}
 
 namespace KATA_0529
 {
-    namespace RotateStrings
-    { 
-        std::string solution(int num);
-    }
+	namespace kata9
+	{
+		std::string solution(int num);
+	}
+	namespace kata13_SumNumberSeats
+	{ 
+		int solution(int n);
+	}
+}
 
-    double solution(vector<int> arr);
+namespace KATA_0530
+{
+	namespace kata14
+	{
+		int solution(int primNum);
+		vector<int> find_prime(int input_num);
+	}
+}
 
-    namespace SumNumberSeats 
-    { // 함수 정의가 겹쳐서 네임스페이스 추가
-        int solution(int n);
-    }
+namespace KATA_0602
+{
+	// 간단한 이전문제들 수정
+	namespace kata1
+	{
+		int solution(int num1, int num2);
+	}
+
+	namespace kata2
+	{
+		int solution(int num1, int num2);
+	}
+
+	namespace kata3
+	{
+		int solution(int num1, int num2);
+	}
+
+	namespace kata4
+	{
+		int solution(int age);
+	}
 }
