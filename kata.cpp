@@ -100,37 +100,6 @@ namespace KATA_0529
 
 }
 
-namespace KATA_0530
-{
-	namespace kata14
-	{
-		// 작업중.
-		int solution(int n)
-		{
-			find_prime(n);
-			return n;
-		}
-		vector<int> find_prime(int input_num)
-		{
-			if (input_num <= 2) {
-				return { input_num };
-			}
-			for (int idx = 2; idx < input_num; ++idx) {
-				if (input_num % idx == 0) {
-					vector<int> ret_list;
-					auto val_a = find_prime(idx);
-					auto val_b = find_prime(input_num / idx);
-					ret_list.reserve(val_a.size() + val_b.size());
-					ret_list.insert(ret_list.end(), val_a.begin(), val_a.end());
-					ret_list.insert(ret_list.end(), val_b.begin(), val_b.end());
-					return ret_list;
-				}
-			}
-			return { input_num };
-		}
-	}
-}
-
 namespace KATA_0602
 {
 	namespace kata1
@@ -182,6 +151,32 @@ namespace KATA_0602
 					break;
 				}
 			}
+			return answer;
+		}
+	}
+}
+
+
+
+//namespace KATA_0530
+namespace KATA_0604
+{
+	namespace kata14
+	{
+		// 작업중.
+		int solution(int n)
+		{
+			if (n == 0) return 0;
+			int answer = n > 1 ? 1 + n : 1;
+			int max = n / 2;
+			for (int i = 2; i <= max; i++)
+			{
+				if (n % i == 0)
+				{
+					answer += i;
+				}
+			}
+
 			return answer;
 		}
 	}

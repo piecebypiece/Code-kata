@@ -2,6 +2,7 @@
 //
 
 #include <iostream>
+#include <string>
 #include "KATA.hpp"
 using namespace std;
 int main()
@@ -13,4 +14,8 @@ int main()
 	//KATA_0528::solution("Every day code kata");
 	//int result = KATA_0529::SumNumberSeats::solution(123);
 	//cout << "Sum of digits in 123 = " << result << "\n";
+	
+	
+	//int retval =KATA_0530::kata14::solution(2934);
+	//cout << to_string(retval) << endl;
 }
