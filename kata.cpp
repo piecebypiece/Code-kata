@@ -180,4 +180,39 @@ namespace KATA_0604
 			return answer;
 		}
 	}
+
+	namespace kata17
+	{
+		using namespace std;
+
+		vector<int> solution(long long n) {
+			vector<int> answer;
+			string s = to_string(n);
+			for (auto iter = --s.end(); iter != --s.begin(); iter--)
+			{
+				int val = *iter - '0';
+				answer.push_back(val);
+			}
+			return answer;
+		}
+	}
+	namespace kata16
+	{
+		vector<long long> solution(int x, int n) 
+		{
+
+			vector<long long> answer;
+
+			if (n == 0) return answer;
+
+			answer.push_back(x);
+			long long first = x;
+			for (int i = 1; i < n; i++)
+			{
+				answer.push_back(answer[i - 1] + first);
+			}
+
+			return answer;
+		}
+	}
 }
