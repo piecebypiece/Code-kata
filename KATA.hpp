@@ -73,3 +73,12 @@ namespace KATA_0602
 		int solution(int n);
 	}
 }
+
+namespace KATA_0603
+{
+
+	namespace kata17
+	{
+		int solution(string s);
+	}
+}

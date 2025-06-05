@@ -216,3 +216,16 @@ namespace KATA_0604
 		}
 	}
 }
+
+namespace KATA_0605
+{
+	namespace kata18
+	{
+		using namespace std;
+
+		int solution(string s)
+		{
+			return  stoi(s);
+		}
+	}
+} // namespace KATA_0605
