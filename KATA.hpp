@@ -74,10 +74,10 @@ namespace KATA_0602
 	}
 }
 
-namespace KATA_0603
+namespace KATA_0605
 {
 
-	namespace kata17
+	namespace kata18
 	{
 		int solution(string s);
 	}
