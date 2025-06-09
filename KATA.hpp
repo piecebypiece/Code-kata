@@ -82,3 +82,16 @@ namespace KATA_0605
 		int solution(string s);
 	}
 }
+
+namespace KATA_0609
+{
+	namespace kata19
+	{
+		long long solution(long long n);
+	}
+
+	namespace kata20
+	{
+		long long solution(long long n);
+	}
+}

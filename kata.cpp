@@ -1,6 +1,7 @@
 
 #include <string>
 #include <iostream>
+#include <algorithm>
 #include "KATA.hpp"
 
 using std::cout;
@@ -229,3 +230,38 @@ namespace KATA_0605
 		}
 	}
 } // namespace KATA_0605
+
+
+namespace KATA_0609
+{
+	namespace kata19
+	{
+		long long solution(long long n)
+		{
+			long long answer = 0;
+			double val = sqrt(n);
+			int intVal = val;
+			if (val - intVal > 0.0)
+				return -1;
+
+			return pow(intVal + 1, 2);
+		}
+	}
+
+	namespace kata20
+	{
+		using namespace std;
+		long long solution(long long n)
+		{
+			long long answer = 0;
+
+			string s = to_string(n);
+
+			sort(s.begin(), s.end(), greater<long long>());
+
+			answer = stoll(s);
+
+			return answer;
+		}
+	}
+}
