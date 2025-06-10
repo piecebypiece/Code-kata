@@ -94,4 +94,21 @@ namespace KATA_0609
 	{
 		long long solution(long long n);
 	}
+
+	namespace kata21
+	{
+		bool solution(int x);
+	}
+}
+
+namespace KATA_0610
+{
+	namespace kata21
+	{
+		bool solution(int x);
+	}
+	namespace kata22
+	{
+		long long solution(int a, int b);
+	}
 }

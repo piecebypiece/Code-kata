@@ -247,21 +247,46 @@ namespace KATA_0609
 			return pow(intVal + 1, 2);
 		}
 	}
+}
 
-	namespace kata20
+
+namespace KATA_0610
+{
+	namespace kata21
 	{
 		using namespace std;
-		long long solution(long long n)
+
+		bool solution(int x) 
 		{
-			long long answer = 0;
+			string str = to_string(x);
 
-			string s = to_string(n);
+			int sum = 0;
 
-			sort(s.begin(), s.end(), greater<long long>());
+			for (char c : str)
+			{
+				sum += c - '0';
+			}
 
-			answer = stoll(s);
 
-			return answer;
+			return x % sum == 0;
+		}
+	}
+
+	namespace kata22
+	{
+		using namespace std;
+		long long solution(int a, int b)
+		{
+
+			if (a > b)
+			{
+				auto temp = a;
+				a = b;
+				b = temp;
+			}
+
+			long long n = b - a + 1;
+			return (a + b) * n / 2;
 		}
 	}
 }
