@@ -112,3 +112,10 @@ namespace KATA_0610
 		long long solution(int a, int b);
 	}
 }
+namespace KATA_0612
+{
+	namespace kata23
+	{
+		int solution(int num);
+	}
+}

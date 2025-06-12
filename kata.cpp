@@ -290,3 +290,35 @@ namespace KATA_0610
 		}
 	}
 }
+
+namespace KATA_0612
+{
+	//https://school.programmers.co.kr/learn/courses/30/lessons/12943
+	namespace kata23
+	{
+		using namespace std;
+		int solution(int num)
+		{
+			if (num == 1) return 0;
+
+			long long collatz = num;
+			int answer = -1;
+			for (int i = 0; i < 500; i++)
+			{
+				bool odd = collatz & 1;
+				if (odd)
+					collatz = collatz * 3 + 1;
+				else
+					collatz >>= 1;
+
+				if (collatz == 1)
+				{
+					answer = i + 1;
+					break;
+				}
+			}
+
+			return answer;
+		}
+	}
+} // namespace KATA_0612

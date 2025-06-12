@@ -18,4 +18,6 @@ int main()
 	
 	//int retval =KATA_0530::kata14::solution(2934);
 	//cout << to_string(retval) << endl;
+
+	//KATA_0612::kata23::solution(7999999);
 }
