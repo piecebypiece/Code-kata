@@ -322,3 +322,84 @@ namespace KATA_0612
 		}
 	}
 } // namespace KATA_0612
+
+namespace KATA_0613
+{
+	namespace kata24
+	{
+		string solution(vector<string> seoul)
+		{
+			string answer = "";
+			const string kim = "Kim";
+			for (int i = 0; i < seoul.size(); ++i)
+			{
+				if (seoul[i] == kim)
+				{
+					answer = "김서방은 " + std::to_string(i) + "에 있다";
+					break;
+				}
+			}
+			return answer;
+		}
+	}
+	namespace kata25
+	{
+		vector<int> solution(vector<int> arr, int divisor)
+		{
+
+			vector<int> answer;
+			for (auto& element : arr)
+			{
+				if (element % divisor == 0)
+				{
+					answer.push_back(element);
+				}
+			}
+
+			if (answer.size() == 0)
+				answer.push_back(-1);
+			else
+				sort(answer.begin(), answer.end());
+			return answer;
+		}
+	}
+
+	namespace kata26
+	{
+		int solution(vector<int> absolutes, vector<bool> signs) 
+		{
+			int answer = 0;
+
+			for (int i = 0; i < signs.size(); i++)
+			{
+				answer += (signs[i] ? 1 : -1) * absolutes[i];
+			}
+			return answer;
+		}
+	}
+
+	namespace kata27
+	{
+	
+		string solution(string phone_number)
+		{
+			string answer = phone_number;
+
+			if (answer.size() > 4)
+			{
+				answer.replace(answer.begin(), answer.end() - 4, answer.size() - 4, '*');
+			}
+
+			return answer;
+		}
+	}
+	int kata28::solution(vector<int> numbers)
+	{
+		int answer = -1;
+		const int sumOneToNine = 45;
+		answer = sumOneToNine;
+		for (auto& num : numbers)
+			answer -= num;
+		return answer;
+	}
+} // namespace KATA_0613

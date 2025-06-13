@@ -114,8 +114,42 @@ namespace KATA_0610
 }
 namespace KATA_0612
 {
+	//https://school.programmers.co.kr/learn/courses/30/lessons/12943
 	namespace kata23
 	{
 		int solution(int num);
+	}
+}
+
+namespace KATA_0613
+{
+	namespace kata24
+	{	
+		//https://school.programmers.co.kr/learn/courses/30/lessons/12919
+		string solution(vector<string> seoul);
+	}
+
+	namespace kata25
+	{
+		//https://school.programmers.co.kr/learn/courses/30/lessons/12910
+		vector<int> solution(vector<int> arr, int divisor);
+	}
+
+	namespace kata26
+	{
+		//https://school.programmers.co.kr/learn/courses/30/lessons/76501
+		int solution(vector<int> absolutes, vector<bool> signs);
+	}
+
+	namespace kata27
+	{
+		//https://school.programmers.co.kr/learn/courses/30/lessons/12948
+		string solution(string phone_number);
+	}
+
+	namespace kata28
+	{
+		//https://school.programmers.co.kr/learn/courses/30/lessons/86051
+		int kata28::solution(vector<int> numbers);
 	}
 }
