@@ -300,7 +300,7 @@ namespace KATA_0612
 		int solution(int num)
 		{
 			if (num == 1) return 0;
-
+			
 			long long collatz = num;
 			int answer = -1;
 			for (int i = 0; i < 500; i++)
@@ -403,3 +403,32 @@ namespace KATA_0613
 		return answer;
 	}
 } // namespace KATA_0613
+
+namespace KATA_0616
+{
+	vector<int> kata29::solution(vector<int> arr)
+	{
+		vector<int> answer;
+		int min = std::numeric_limits<int>::max();
+
+		int index = 0;
+		for (auto iter = arr.begin(); iter != arr.end(); iter++)
+		{
+			if (min > *iter)
+			{
+				min = *iter;
+				index = iter - arr.begin();
+			}
+		}
+
+		if (arr.size() == 1)
+		{
+			answer.push_back(-1);
+			return answer;
+		}
+
+		arr.erase(arr.begin() + index);
+
+		return arr;
+	}
+}

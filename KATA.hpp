@@ -153,3 +153,12 @@ namespace KATA_0613
 		int kata28::solution(vector<int> numbers);
 	}
 }
+
+namespace KATA_0616
+{
+	namespace kata29
+	{
+		//https://school.programmers.co.kr/learn/courses/30/lessons/12935
+		vector<int> solution(vector<int> arr);
+	}
+}
