@@ -162,3 +162,27 @@ namespace KATA_0616
 		vector<int> solution(vector<int> arr);
 	}
 }
+
+namespace KATA_0617
+{
+	namespace kata30
+	{ 
+		//https://school.programmers.co.kr/learn/courses/30/lessons/12903
+		string solution(string s);
+	}
+
+	namespace kata31
+	{
+		//https://school.programmers.co.kr/learn/courses/30/lessons/12922
+		string solution(int n);
+	}
+	namespace kata32
+	{
+		//https://school.programmers.co.kr/learn/courses/30/lessons/70128
+		int solution(vector<int> a, vector<int> b);
+	}
+	namespace kata33
+	{
+		int solution(int left, int right);
+	}
+}

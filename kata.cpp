@@ -432,3 +432,85 @@ namespace KATA_0616
 		return arr;
 	}
 }
+
+namespace KATA_0617
+{
+	namespace kata30
+	{
+		string solution(string s) 
+		{
+			string answer = "";
+			bool isOdd = s.length() & 1;
+			int index = s.length() >> 1;
+			if (!isOdd)
+				index--; // index 
+
+			answer += s[index];
+			if (isOdd == false)
+				answer += s[index + 1];
+			return answer;
+		}
+	}
+	namespace kata31
+	{
+		string solution(int n)
+		{
+			string answer = "";
+			bool turnSu = true;
+			for (int i = 0; i < n; i++)
+			{
+				answer += turnSu ? "수" : "박";
+				turnSu = !turnSu;
+			}
+			return answer;
+		}
+	}
+	namespace kata32
+	{
+		int solution(vector<int> a, vector<int> b)
+		{
+			int answer = 0;
+			for (int i = 0; i < a.size(); i++)
+			{
+				answer += a[i] * b[i];
+			}
+			return answer;
+		}
+	}
+	namespace MyNamespace
+	{
+		int solution(int left, int right) 
+		{
+			int answer = 0;
+			int start = 0;
+			int end = 0;
+			int i = 0;
+			int sum = 0;
+			int square = 0;
+
+			// 약수의 개수가 짝수 : 제곱수가 아닌 수, 약수의 개수가 홀수 : 제곱수 
+
+			while (i * i < left) {
+				i++;
+			}
+			start = i;
+
+			while (i * i <= right) {
+				i++;
+			}
+			if (i * i > right)
+				end = i - 1;
+
+			sum = (left + right) * (right - left + 1) / 2;
+
+			for (i = start; i <= end; i++)
+			{
+				square += i * i;
+			}
+
+			answer = sum - square * 2;
+
+			return answer;
+		}
+	}
+} // namespace KATA_0617
