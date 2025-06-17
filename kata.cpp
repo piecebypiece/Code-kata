@@ -477,7 +477,7 @@ namespace KATA_0617
 			return answer;
 		}
 	}
-	namespace MyNamespace
+	namespace kata33
 	{
 		int solution(int left, int right) 
 		{
@@ -490,12 +490,14 @@ namespace KATA_0617
 
 			// 약수의 개수가 짝수 : 제곱수가 아닌 수, 약수의 개수가 홀수 : 제곱수 
 
-			while (i * i < left) {
+			while (i * i < left) 
+			{
 				i++;
 			}
 			start = i;
 
-			while (i * i <= right) {
+			while (i * i <= right) 
+			{
 				i++;
 			}
 			if (i * i > right)

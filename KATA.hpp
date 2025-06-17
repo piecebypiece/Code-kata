@@ -183,6 +183,7 @@ namespace KATA_0617
 	}
 	namespace kata33
 	{
+		//https://school.programmers.co.kr/learn/courses/30/lessons/77884
 		int solution(int left, int right);
 	}
 }
