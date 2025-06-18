@@ -187,3 +187,17 @@ namespace KATA_0617
 		int solution(int left, int right);
 	}
 }
+
+namespace KATA_0618
+{
+	namespace kata34
+	{
+		//https://school.programmers.co.kr/learn/courses/30/lessons/12917
+		string solution(string s);
+	}
+	namespace kata35
+	{
+		//https://school.programmers.co.kr/learn/courses/30/lessons/82612#
+		long long solution(int price, int money, int count);
+	}
+}

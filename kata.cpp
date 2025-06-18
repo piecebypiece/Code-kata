@@ -516,3 +516,28 @@ namespace KATA_0617
 		}
 	}
 } // namespace KATA_0617
+
+namespace KATA_0618
+{
+	namespace kata34
+	{
+		string solution(string s)
+		{
+			sort(s.begin(), s.end(), std::greater<char>());
+			return s;
+		}
+	}
+	namespace kata35
+	{
+		//https://school.programmers.co.kr/learn/courses/30/lessons/82612#
+		long long solution(int price, int money, int count)
+		{
+			long long answer = -1;
+			// 시작값 + n * n / 2 = 최종가격
+			int n = (price * count + price);
+			long long totalPrice = (long long)n * count / 2l;
+			answer = money - totalPrice;
+			return answer > 0 ? 0 : -answer;
+		}
+	}
+}
