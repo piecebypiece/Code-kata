@@ -150,7 +150,7 @@ namespace KATA_0613
 	namespace kata28
 	{
 		//https://school.programmers.co.kr/learn/courses/30/lessons/86051
-		int kata28::solution(vector<int> numbers);
+		int solution(vector<int> numbers);
 	}
 }
 
@@ -199,5 +199,24 @@ namespace KATA_0618
 	{
 		//https://school.programmers.co.kr/learn/courses/30/lessons/82612#
 		long long solution(int price, int money, int count);
+	}
+}
+
+namespace KATA_0619
+{
+	namespace kata36
+	{
+		//https://school.programmers.co.kr/learn/courses/30/lessons/12918
+		bool solution(string s);
+	}
+	namespace kata37
+	{
+		//https://school.programmers.co.kr/learn/courses/30/lessons/12950
+		vector<vector<int>> solution(vector<vector<int>> arr1, vector<vector<int>> arr2);
+	}
+	namespace kata38
+	{
+		//https://school.programmers.co.kr/learn/courses/30/lessons/12969
+		int solution(void);	// 문제에선 main 썻음
 	}
 }
