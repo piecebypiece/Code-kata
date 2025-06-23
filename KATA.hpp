@@ -220,3 +220,16 @@ namespace KATA_0619
 		int solution(void);	// 문제에선 main 썻음
 	}
 }
+
+namespace KATA_0623
+{
+	namespace kata39
+	{
+		vector<int> solution(int n, int m);
+	}
+	namespace kata40
+	{
+		//https://school.programmers.co.kr/learn/courses/30/lessons/68935
+		int solution(int n);
+	}
+}
