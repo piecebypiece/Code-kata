@@ -237,11 +237,12 @@ namespace KATA_0623
 namespace KATA_0624
 {
 	namespace kata41
-	{
+	{//https://school.programmers.co.kr/learn/courses/30/lessons/12930
 		string solution(string s);
 	}
 	namespace kata42
 	{
+		//https://school.programmers.co.kr/learn/courses/30/lessons/131705
 		int solution(vector<int> number);
 	}
 }
