@@ -665,3 +665,55 @@ namespace KATA_0623
 		}
 	}
 }
+
+namespace KATA_0624
+{
+	namespace kata41
+	{
+		string solution(string s)
+
+		{
+			string answer = "";
+			int num = 0;
+			for (int i = 0; i < s.size(); i++, num++)
+			{
+				if (s[i] == ' ')
+				{
+					num = -1;
+					continue;
+				}
+
+				bool isUpperCase = num == 0 or !((num & 1) == 1);
+
+				s[i] = isUpperCase ? toupper(s[i]) : tolower(s[i]);
+			}
+
+
+			return s;
+		}
+	}
+	namespace kata42
+	{
+		int solution(vector<int> number)
+		{
+			int answer = 0;
+
+			int first;
+			for(int i=0; i<number.size(); i++)
+			{
+				first = number[i];
+				for (int j= i+1; j<number.size(); j++)
+				{
+					int sum = first + number[j];
+					for(int k= j+1; k<number.size(); k++)
+					{
+						if (sum + number[k] == 0)
+							answer++;
+					}
+				}
+			}
+
+			return answer;
+		}
+	}
+}

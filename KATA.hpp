@@ -233,3 +233,15 @@ namespace KATA_0623
 		int solution(int n);
 	}
 }
+
+namespace KATA_0624
+{
+	namespace kata41
+	{
+		string solution(string s);
+	}
+	namespace kata42
+	{
+		int solution(vector<int> number);
+	}
+}
