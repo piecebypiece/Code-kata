@@ -246,3 +246,11 @@ namespace KATA_0624
 		int solution(vector<int> number);
 	}
 }
+
+namespace KATA_0626
+{
+	namespace kata43
+	{ //https://school.programmers.co.kr/learn/courses/30/lessons/147355
+		int solution(string t, string p);
+	}
+}

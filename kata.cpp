@@ -717,3 +717,39 @@ namespace KATA_0624
 		}
 	}
 }
+
+
+namespace KATA_0626
+{
+	namespace kata43
+	{
+		int solution(string t, string p)
+		{
+			string* target;
+			if (t.size() < p.size())
+			{
+				target = &t;
+			}
+			else
+			{
+				target = &p;
+			}
+
+			string& shortStr = *target;
+			string& big = target == &p ? t : p;
+
+			int answer = 0;
+			long long shortNum = stoll(shortStr);
+			int loopCnt = (big.size() - shortStr.size() + 1);
+
+			for (int i = 0; i < loopCnt; i++)
+			{
+				string s = big.substr(i, shortStr.size());
+				if (stoll(s) <= shortNum)
+					answer++;
+			}
+
+			return answer;
+		}
+	}
+}
