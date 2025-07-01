@@ -1,4 +1,4 @@
-#include <string>
+﻿#include <string>
 #include <iostream>
 #include <algorithm>
 #include "KATA.hpp"
@@ -440,7 +440,7 @@ namespace KATA_0617
 		{
 			string answer = "";
 			bool isOdd = s.length() & 1;
-			int index = s.length() >> 1;
+			int index = (int)(s.length() >> 1);
 			if (!isOdd)
 				index--; // index 
 
@@ -459,7 +459,7 @@ namespace KATA_0617
 			for (int i = 0; i < n; i++)
 			{
 				if (turnSu)
-					answer += "수";
+					answer += u8"수";
 				else
 					answer += u8"박";
 
@@ -648,7 +648,7 @@ namespace KATA_0623
 				remList.push_back(rem);
 
 				if (quot == 0)
-					return;
+					break;
 			}
 
 			std::reverse(remList.begin(), remList.end());
@@ -750,6 +750,35 @@ namespace KATA_0626
 			}
 
 			return answer;
+		}
+	}
+}
+
+namespace KATA_0701
+{
+	namespace kata44
+	{
+		int solution(vector<vector<int>> sizes) 
+		{
+			int answer = 0;
+			// 명함을 회전시켜 넣는 것도 고려할 수 있다.
+			// 즉 둘 중 큰 길이를 만족시키기만 하면 된다.
+			// 둘 중 큰 수는 큰 수 로 비교 작은 수는 작은 수로 비교
+			int maxofMax = 0;
+			int minofMin = 0;
+			for (vector<int>& size : sizes)
+			{
+				int w = size[0];
+				int h = size[1];
+
+				// 회전을 고려하여 항상 w가 더 길게 정렬
+				if (w < h) std::swap(w, h);
+
+				// 가장 큰 긴 변과 가장 큰 짧은 변을 찾는다
+				maxofMax = std::max(maxofMax, w);
+				minofMin = std::max(minofMin, h);
+			}
+			return maxofMax * minofMin;
 		}
 	}
 }

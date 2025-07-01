@@ -41,7 +41,6 @@ namespace KATA_0530
 	namespace kata14
 	{
 		int solution(int primNum);
-		vector<int> find_prime(int input_num);
 	}
 }
 
@@ -252,5 +251,14 @@ namespace KATA_0626
 	namespace kata43
 	{ //https://school.programmers.co.kr/learn/courses/30/lessons/147355
 		int solution(string t, string p);
+	}
+}
+
+namespace KATA_0701
+{
+	//https://school.programmers.co.kr/learn/courses/30/lessons/86491
+	namespace kata44
+	{
+		int solution(vector<vector<int>> sizes);
 	}
 }
