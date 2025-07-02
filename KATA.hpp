@@ -262,3 +262,12 @@ namespace KATA_0701
 		int solution(vector<vector<int>> sizes);
 	}
 }
+
+namespace KATA_0702
+{
+	namespace kata45
+	{ //https://school.programmers.co.kr/learn/courses/30/lessons/12926#
+		string solution(string s, int n);
+	}
+}
+		

@@ -1,4 +1,4 @@
-﻿#include <string>
+#include <string>
 #include <iostream>
 #include <algorithm>
 #include "KATA.hpp"
@@ -779,6 +779,40 @@ namespace KATA_0701
 				minofMin = std::max(minofMin, h);
 			}
 			return maxofMax * minofMin;
+		}
+	}
+}
+namespace KATA_0702
+{
+	namespace kata45
+	{
+		string solution(string s, int n) 
+		{    
+			for (auto iter = s.begin(); iter != s.end(); iter++)
+			{
+				char c = *iter;
+				if (c == ' ')
+					continue;
+
+				int nChar = c + n;
+				char starter = 'a';
+				int overCount = 0;
+				if (c <= 'Z' and nChar > 'Z')
+				{
+					overCount = nChar - 'Z';
+					starter = 'A';
+				}
+				else if (nChar > 'z')
+				{
+					overCount = nChar - 'z';
+					starter = 'a';
+				}
+				if (overCount > 0)
+					nChar = starter + overCount - 1;
+				*iter = nChar;
+			}
+
+			return s;
 		}
 	}
 }
