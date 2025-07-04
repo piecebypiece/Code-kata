@@ -1,10 +1,12 @@
 #include <string>
 #include <iostream>
 #include <algorithm>
+#include <unordered_map>
 #include "KATA.hpp"
 
 using std::cout;
 using std::endl;
+using std::unordered_map;
 
 
 namespace KATA_0527
@@ -813,6 +815,48 @@ namespace KATA_0702
 			}
 
 			return s;
+		}
+	}
+}
+
+namespace KATA_0704
+{
+	namespace kata41
+	{
+		int solution(string input)
+		{
+			unordered_map<string, char> wordToDigit =
+			{
+				{"zero", '0'}, {"one", '1'}, {"two", '2'},   {"three", '3'},
+				{"four", '4'}, {"five", '5'}, {"six", '6'},  {"seven", '7'},
+				{"eight", '8'}, {"nine", '9'}
+			};
+
+			string result;
+			string buffer;
+
+			for (char ch : input)
+			{
+				if (isdigit(ch))
+				{
+					result += ch;
+				}
+				else
+				{
+					buffer += ch;
+					// 최대 길이 5인 단어들에 대해 검사
+					if (buffer.length() >= 3 && buffer.length() <= 5)
+					{
+						if (wordToDigit.count(buffer))
+						{
+							result += wordToDigit[buffer];
+							buffer.clear();
+						}
+					}
+				}
+			}
+
+			return stoi(result);
 		}
 	}
 }
