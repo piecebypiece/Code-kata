@@ -274,8 +274,12 @@ namespace KATA_0702
 
 namespace KATA_0704
 {
-	namespace kata41
+	namespace kata46
 	{	//https://school.programmers.co.kr/learn/courses/30/lessons/81301
+		int solution(string input);
+	}
+	namespace kata47
+	{	//https://school.programmers.co.kr/learn/courses/30/lessons/12915
 		int solution(string input);
 	}
 }

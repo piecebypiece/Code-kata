@@ -821,7 +821,7 @@ namespace KATA_0702
 
 namespace KATA_0704
 {
-	namespace kata41
+	namespace kata46
 	{
 		int solution(string input)
 		{
@@ -857,6 +857,22 @@ namespace KATA_0704
 			}
 
 			return stoi(result);
+		}
+	}
+	namespace kata47
+	{
+		vector<string> solution(vector<string> strings, int n) 
+		{
+			vector<string> answer;
+			sort(strings.begin(), strings.end(), [&n](auto& a, auto& b)
+			{
+				if (a[n] == b[n])
+				{
+					return a < b;     
+				}  
+				return a[n] < b[n];     
+			});
+			return strings;
 		}
 	}
 }
