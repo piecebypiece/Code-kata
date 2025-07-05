@@ -283,3 +283,20 @@ namespace KATA_0704
 		int solution(string input);
 	}
 }
+
+namespace KATA_0705
+{
+	namespace kata48
+	{ //https://school.programmers.co.kr/learn/courses/30/lessons/42748
+		vector<int> solution(vector<int> array, vector<vector<int>> commands);
+	}
+}
+
+namespace KATA_0706
+{
+
+	namespace kata49
+	{ //https://school.programmers.co.kr/learn/courses/30/lessons/68644
+		vector<int> solution(vector<int> numbers);
+	}
+}

@@ -876,3 +876,60 @@ namespace KATA_0704
 		}
 	}
 }
+
+namespace KATA_0705
+{
+	namespace kata48
+	{ //https://school.programmers.co.kr/learn/courses/30/lessons/42748
+		vector<int> solution(vector<int> array, vector<vector<int>> commands) 
+		{
+			vector<int> answer;
+
+			vector<int> copyArray;
+			for(auto iter = commands.begin(); iter != commands.end(); iter++)
+			{
+				copyArray.clear();
+
+				for(int i = (*iter)[0] - 1; i < (*iter)[1]; i++)
+					copyArray.push_back(array[i]);
+
+				sort(copyArray.begin(),copyArray.end());
+
+				answer.push_back(copyArray[(*iter)[2] - 1]);
+			}
+
+
+			return answer;
+		}
+	}
+}
+
+namespace KATA_0706
+{
+	#include <algorithm>
+	using std::sort;
+	namespace kata49
+	{ //https://school.programmers.co.kr/learn/courses/30/lessons/68644
+		vector<int> solution(vector<int> numbers) 
+		{
+			vector<int> answer;
+
+			// 모든 조합을 찾아야한다.
+			// 현재 인덱스보다 큰 인덱스와 조합하면 되며.
+			for(int i = 0; i < numbers.size() - 1; i++)
+			{
+				for (int j = i + 1; j < numbers.size(); j++)
+				{
+					answer.push_back(numbers[i] + numbers[j]);
+				}
+			}
+			// 중복된 내용을 제거 해준다.
+			sort(answer.begin(), answer.end());
+			auto lastIndex = unique(answer.begin(), answer.end());
+			answer.erase(lastIndex, answer.end());
+
+
+			return answer;
+		}
+	}
+}
