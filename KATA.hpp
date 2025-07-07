@@ -305,8 +305,10 @@ namespace KATA_0707
 {
 	namespace kata50
 	{//https://school.programmers.co.kr/learn/courses/30/lessons/142086
-		using namespace std;
-
 		vector<int> solution(string s);
+	}
+	namespace kata51
+	{//https://school.programmers.co.kr/learn/courses/30/lessons/134240
+		string solution(vector<int> food);
 	}
 }

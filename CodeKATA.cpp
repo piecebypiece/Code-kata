@@ -20,4 +20,5 @@ int main()
 	//cout << to_string(retval) << endl;
 
 	//KATA_0612::kata23::solution(7999999);
+	KATA_0707::kata51::solution(vector<int>{1, 3, 4, 6});
 }

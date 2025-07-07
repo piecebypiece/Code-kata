@@ -962,4 +962,38 @@ namespace KATA_0707
 			return answer;
 		}
 	}
+
+	namespace kata51
+	{
+		string solution(vector<int> food)
+		{
+			vector<int> evenCounts(food.size() - 1);
+			int sum = 0;
+			for (int i = 1; i < food.size(); i++)
+			{
+				int foodCount = food[i] & ~1;
+				sum += evenCounts[i - 1] = foodCount;
+			}
+
+			string answer(sum + 1, ' ');
+
+			fill(answer.begin(), answer.end(), '0');
+
+			int index = 0;
+			for (int i = 0; i < evenCounts.size(); i++)
+			{
+				int count = evenCounts[i] >> 1;
+
+				for (int j = 0; j < count; j++)
+				{
+					answer[answer.size() - index - 1] = answer[index] = ('1' + i);
+					index++;
+				}
+			}
+			answer[index] = '0';
+
+			return answer;
+
+		}
+	}
 }
