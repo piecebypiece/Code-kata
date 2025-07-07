@@ -933,3 +933,33 @@ namespace KATA_0706
 		}
 	}
 }
+
+namespace KATA_0707
+{
+	namespace kata50
+	{
+		using namespace std;
+
+		vector<int> solution(string s) 
+		{
+			vector<int> answer(s.size());
+
+			unordered_map<char, int> charIndexMap;
+			fill(answer.begin(), answer.end(), -1);
+
+			for (int i = 0; i < s.size(); i++)
+			{
+				char c = s[i];
+				auto pairOptional = charIndexMap.try_emplace(c, i);
+				if (pairOptional.second == false)
+				{
+					int lastIndex = charIndexMap[c];
+					answer[i] = i - lastIndex;
+					charIndexMap[c] = i;
+				}
+			}
+
+			return answer;
+		}
+	}
+}
