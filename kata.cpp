@@ -1003,3 +1003,15 @@ namespace kata51
 	}
 }
 #pragma endregion KATA_0707
+
+#pragma region KATA_0709
+
+namespace kata52
+{ //https://school.programmers.co.kr/learn/courses/30/lessons/132267
+	int solution(int a, int b, int n);
+}
+
+#pragma endregion KATA_0709
+
+
+////https://github.com/piecebypiece/Code-kata

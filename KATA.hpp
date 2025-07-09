@@ -316,3 +316,37 @@ namespace kata51
 	string solution(vector<int> food);
 }
 #pragma endregion KATA_0707
+
+#pragma region KATA_0707
+namespace kata52
+{
+	using namespace std;
+
+	int solution(int a, int b, int n) 
+	{
+		// a 교환개수 
+		// b 콜라교환수 
+		// 소지 빈병의 개수
+
+		// 교환 가능 개수는 
+		// 그 다음 교환 가능 개수
+		// n / a * b = r, n % a = c
+		// (c + r) / a * b
+
+		int remein = n;
+		int answer = 0;
+		while (remein >= a)
+		{
+			auto result = div(remein, a);
+			int quotient = result.quot;
+			int remainder = result.rem;
+			int cokeNum = quotient * b;
+			answer += cokeNum;
+			remein = cokeNum + remainder;
+		}
+
+
+		return answer;
+	}
+}
+#pragma endregion KATA_0707
