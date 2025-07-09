@@ -9,7 +9,9 @@ using std::endl;
 using std::unordered_map;
 
 
-namespace KATA_0527
+#pragma region KATA_0527
+// KATA_0527
+namespace kata09
 {
 	//https://school.programmers.co.kr/learn/courses/30/lessons/120831
 	int solution(int n)
@@ -23,977 +25,981 @@ namespace KATA_0527
 		return answer;
 	}
 }
+#pragma endregion KATA_0527
 
-namespace KATA_0528
+#pragma region KATA_0528
+// KATA_0528
+namespace RotateStrings
 {
-	namespace RotateStrings
+	// 스레드 문제 문자열 회전
+	void solution(std::string str)
 	{
-		// 스레드 문제 문자열 회전
-		void solution(std::string str)
-		{
-			int start = 0, size = str.size();
+		int start = 0, size = str.size();
 
-			cout << "[";
-			for (int i = 0; i < str.size(); ++i, ++start)
+		cout << "[";
+		for (int i = 0; i < str.size(); ++i, ++start)
+		{
+			cout << "\"";
+			for (int j = start; j < size; ++j)
 			{
-				cout << "\"";
-				for (int j = start; j < size; ++j)
+				cout << str[j];
+			}
+			if (start > 0)
+			{
+				for (int j = 0; j < start; ++j)
 				{
 					cout << str[j];
 				}
-				if (start > 0)
-				{
-					for (int j = 0; j < start; ++j)
-					{
-						cout << str[j];
-					}
-				}
-				cout << "\" ";
 			}
-			cout << "]" << endl;
+			cout << "\" " << endl;
 		}
-	}
-	namespace kata10
-	{
-		double solution(vector<int> numbers)
-		{
-			double answer = 0;
-
-			for (auto iter = numbers.begin(); iter != numbers.end(); iter++)
-			{
-				answer += *iter;
-			}
-			answer /= numbers.size();
-			return answer;
-		}
+		cout << "]" << endl;
 	}
 }
-
-namespace KATA_0529
+namespace kata10
 {
-
-
-	//https://school.programmers.co.kr/learn/courses/30/lessons/12937
-	namespace kata9
+	double solution(vector<int> numbers)
 	{
-		string solution(int num)
+		double answer = 0;
+
+		for (auto iter = numbers.begin(); iter != numbers.end(); iter++)
 		{
-			string answer = (num & 1) == 1 ? "Odd" : "Even";
-			return answer;
+			answer += *iter;
 		}
+		answer /= numbers.size();
+		return answer;
 	}
-
-	namespace kata13_SumNumberSeats
-	{
-		int solution(int n)
-		{
-			int answer = 0;
-
-			string str = std::to_string(n);
-
-			for (int i = 0; i < str.size(); i++)
-			{
-				answer += str[i] - '0'; // 문자 -> 숫자 변환
-			}
-
-			return answer;
-		}
-	}
-
 }
+#pragma endregion KATA_0528
 
-namespace KATA_0602
+#pragma region KATA_0529
+// KATA_0529
+
+
+//https://school.programmers.co.kr/learn/courses/30/lessons/12937
+namespace kata11
 {
-	namespace kata1
+	string solution(int num)
 	{
-		int solution(int num1, int num2)
-		{
-			return num1 - num2;
-		}
-	}
-
-	namespace kata2
-	{
-		int solution(int num1, int num2) 
-		{
-			return num1 * num2;
-		}
-	}
-
-	namespace kata3
-	{
-		int solution(int num1, int num2)
-		{
-			return num1 / num2;
-		}
-	}
-
-	namespace kata4
-	{
-		int solution(int age)
-		{
-			return 2022 - age + 1; // 만나이
-		}
-	}
-
-	namespace kata15
-	{
-		int solution(int n)
-		{
-			if (n % 2 == 1)
-				return 2;
-
-			int answer = n - 1;
-			int sqrtN = sqrt(n);
-			for (int i = 3; i <= sqrtN; i = i + 2)
-			{
-				if (n % i == 1)
-				{
-					answer = i;
-					break;
-				}
-			}
-			return answer;
-		}
+		string answer = (num & 1) == 1 ? "Odd" : "Even";
+		return answer;
 	}
 }
+
+namespace kata13_SumNumberSeats
+{
+	int solution(int n)
+	{
+		int answer = 0;
+
+		string str = std::to_string(n);
+
+		for (int i = 0; i < str.size(); i++)
+		{
+			answer += str[i] - '0'; // 문자 -> 숫자 변환
+		}
+
+		return answer;
+	}
+}
+
+#pragma endregion KATA_0529
+
+#pragma region KATA_0602
+// KATA_0602
+namespace kata1
+{
+	int solution(int num1, int num2)
+	{
+		return num1 - num2;
+	}
+}
+
+namespace kata2
+{
+	int solution(int num1, int num2)
+	{
+		return num1 * num2;
+	}
+}
+
+namespace kata3
+{
+	int solution(int num1, int num2)
+	{
+		return num1 / num2;
+	}
+}
+
+namespace kata4
+{
+	int solution(int age)
+	{
+		return 2022 - age + 1; // 만나이
+	}
+}
+
+namespace kata15
+{
+	int solution(int n)
+	{
+		if (n % 2 == 1)
+			return 2;
+
+		int answer = n - 1;
+		int sqrtN = sqrt(n);
+		for (int i = 3; i <= sqrtN; i = i + 2)
+		{
+			if (n % i == 1)
+			{
+				answer = i;
+				break;
+			}
+		}
+		return answer;
+	}
+}
+#pragma endregion KATA_0602
 
 
 
 //namespace KATA_0530
-namespace KATA_0604
+#pragma region KATA_0604
+// KATA_0604
+namespace kata14
 {
-	namespace kata14
+	// 작업중.
+	int solution(int n)
 	{
-		// 작업중.
-		int solution(int n)
+		if (n == 0) return 0;
+		int answer = n > 1 ? 1 + n : 1;
+		int max = n / 2;
+		for (int i = 2; i <= max; i++)
 		{
-			if (n == 0) return 0;
-			int answer = n > 1 ? 1 + n : 1;
-			int max = n / 2;
-			for (int i = 2; i <= max; i++)
+			if (n % i == 0)
 			{
-				if (n % i == 0)
-				{
-					answer += i;
-				}
+				answer += i;
 			}
-
-			return answer;
 		}
-	}
 
-	namespace kata17
-	{
-		using namespace std;
-
-		vector<int> solution(long long n) {
-			vector<int> answer;
-			string s = to_string(n);
-			for (auto iter = --s.end(); iter != --s.begin(); iter--)
-			{
-				int val = *iter - '0';
-				answer.push_back(val);
-			}
-			return answer;
-		}
-	}
-	namespace kata16
-	{
-		vector<long long> solution(int x, int n) 
-		{
-
-			vector<long long> answer;
-
-			if (n == 0) return answer;
-
-			answer.push_back(x);
-			long long first = x;
-			for (int i = 1; i < n; i++)
-			{
-				answer.push_back(answer[i - 1] + first);
-			}
-
-			return answer;
-		}
-	}
-}
-
-namespace KATA_0605
-{
-	namespace kata18
-	{
-		using namespace std;
-
-		int solution(string s)
-		{
-			return  stoi(s);
-		}
-	}
-} // namespace KATA_0605
-
-
-namespace KATA_0609
-{
-	namespace kata19
-	{
-		long long solution(long long n)
-		{
-			long long answer = 0;
-			double val = sqrt(n);
-			int intVal = val;
-			if (val - intVal > 0.0)
-				return -1;
-
-			return pow(intVal + 1, 2);
-		}
-	}
-}
-
-
-namespace KATA_0610
-{
-	namespace kata21
-	{
-		using namespace std;
-
-		bool solution(int x) 
-		{
-			string str = to_string(x);
-
-			int sum = 0;
-
-			for (char c : str)
-			{
-				sum += c - '0';
-			}
-
-
-			return x % sum == 0;
-		}
-	}
-
-	namespace kata22
-	{
-		using namespace std;
-		long long solution(int a, int b)
-		{
-
-			if (a > b)
-			{
-				auto temp = a;
-				a = b;
-				b = temp;
-			}
-
-			long long n = b - a + 1;
-			return (a + b) * n / 2;
-		}
-	}
-}
-
-namespace KATA_0612
-{
-	//https://school.programmers.co.kr/learn/courses/30/lessons/12943
-	namespace kata23
-	{
-		using namespace std;
-		int solution(int num)
-		{
-			if (num == 1) return 0;
-			
-			long long collatz = num;
-			int answer = -1;
-			for (int i = 0; i < 500; i++)
-			{
-				bool odd = collatz & 1;
-				if (odd)
-					collatz = collatz * 3 + 1;
-				else
-					collatz >>= 1;
-
-				if (collatz == 1)
-				{
-					answer = i + 1;
-					break;
-				}
-			}
-
-			return answer;
-		}
-	}
-} // namespace KATA_0612
-
-namespace KATA_0613
-{
-	namespace kata24
-	{
-		string solution(vector<string> seoul)
-		{
-			string answer = "";
-			const string kim = "Kim";
-			for (int i = 0; i < seoul.size(); ++i)
-			{
-				if (seoul[i] == kim)
-				{
-					answer = "김서방은 " + std::to_string(i) + "에 있다";
-					break;
-				}
-			}
-			return answer;
-		}
-	}
-	namespace kata25
-	{
-		vector<int> solution(vector<int> arr, int divisor)
-		{
-
-			vector<int> answer;
-			for (auto& element : arr)
-			{
-				if (element % divisor == 0)
-				{
-					answer.push_back(element);
-				}
-			}
-
-			if (answer.size() == 0)
-				answer.push_back(-1);
-			else
-				sort(answer.begin(), answer.end());
-			return answer;
-		}
-	}
-
-	namespace kata26
-	{
-		int solution(vector<int> absolutes, vector<bool> signs) 
-		{
-			int answer = 0;
-
-			for (int i = 0; i < signs.size(); i++)
-			{
-				answer += (signs[i] ? 1 : -1) * absolutes[i];
-			}
-			return answer;
-		}
-	}
-
-	namespace kata27
-	{
-	
-		string solution(string phone_number)
-		{
-			string answer = phone_number;
-
-			if (answer.size() > 4)
-			{
-				answer.replace(answer.begin(), answer.end() - 4, answer.size() - 4, '*');
-			}
-
-			return answer;
-		}
-	}
-	int kata28::solution(vector<int> numbers)
-	{
-		int answer = -1;
-		const int sumOneToNine = 45;
-		answer = sumOneToNine;
-		for (auto& num : numbers)
-			answer -= num;
 		return answer;
 	}
-} // namespace KATA_0613
+}
 
-namespace KATA_0616
+namespace kata17
 {
-	vector<int> kata29::solution(vector<int> arr)
-	{
+	using namespace std;
+
+	vector<int> solution(long long n) {
 		vector<int> answer;
-		int min = std::numeric_limits<int>::max();
-
-		int index = 0;
-		for (auto iter = arr.begin(); iter != arr.end(); iter++)
+		string s = to_string(n);
+		for (auto iter = --s.end(); iter != --s.begin(); iter--)
 		{
-			if (min > *iter)
+			int val = *iter - '0';
+			answer.push_back(val);
+		}
+		return answer;
+	}
+}
+namespace kata16
+{
+	vector<long long> solution(int x, int n)
+	{
+
+		vector<long long> answer;
+
+		if (n == 0) return answer;
+
+		answer.push_back(x);
+		long long first = x;
+		for (int i = 1; i < n; i++)
+		{
+			answer.push_back(answer[i - 1] + first);
+		}
+
+		return answer;
+	}
+}
+#pragma endregion KATA_0604
+
+#pragma region KATA_0605
+// KATA_0605
+namespace kata18
+{
+	using namespace std;
+
+	int solution(string s)
+	{
+		return  stoi(s);
+	}
+}
+#pragma endregion KATA_0605
+
+
+#pragma region KATA_0609
+// KATA_0609
+namespace kata19
+{
+	long long solution(long long n)
+	{
+		long long answer = 0;
+		double val = sqrt(n);
+		int intVal = val;
+		if (val - intVal > 0.0)
+			return -1;
+
+		return pow(intVal + 1, 2);
+	}
+}
+#pragma endregion KATA_0609
+
+
+#pragma region KATA_0610
+// KATA_0610
+namespace kata21
+{
+	using namespace std;
+
+	bool solution(int x)
+	{
+		string str = to_string(x);
+
+		int sum = 0;
+
+		for (char c : str)
+		{
+			sum += c - '0';
+		}
+
+
+		return x % sum == 0;
+	}
+}
+
+namespace kata22
+{
+	using namespace std;
+	long long solution(int a, int b)
+	{
+
+		if (a > b)
+		{
+			auto temp = a;
+			a = b;
+			b = temp;
+		}
+
+		long long n = b - a + 1;
+		return (a + b) * n / 2;
+	}
+}
+#pragma endregion KATA_0610
+
+#pragma region KATA_0612
+// KATA_0612
+	//https://school.programmers.co.kr/learn/courses/30/lessons/12943
+namespace kata23
+{
+	using namespace std;
+	int solution(int num)
+	{
+		if (num == 1) return 0;
+
+		long long collatz = num;
+		int answer = -1;
+		for (int i = 0; i < 500; i++)
+		{
+			bool odd = collatz & 1;
+			if (odd)
+				collatz = collatz * 3 + 1;
+			else
+				collatz >>= 1;
+
+			if (collatz == 1)
 			{
-				min = *iter;
-				index = iter - arr.begin();
+				answer = i + 1;
+				break;
 			}
 		}
 
-		if (arr.size() == 1)
+		return answer;
+	}
+}
+#pragma endregion KATA_0612
+
+#pragma region KATA_0613
+// KATA_0613
+namespace kata24
+{
+	string solution(vector<string> seoul)
+	{
+		string answer = "";
+		const string kim = "Kim";
+		for (int i = 0; i < seoul.size(); ++i)
 		{
+			if (seoul[i] == kim)
+			{
+				answer = "김서방은 " + std::to_string(i) + "에 있다";
+				break;
+			}
+		}
+		return answer;
+	}
+}
+namespace kata25
+{
+	vector<int> solution(vector<int> arr, int divisor)
+	{
+
+		vector<int> answer;
+		for (auto& element : arr)
+		{
+			if (element % divisor == 0)
+			{
+				answer.push_back(element);
+			}
+		}
+
+		if (answer.size() == 0)
 			answer.push_back(-1);
-			return answer;
-		}
-
-		arr.erase(arr.begin() + index);
-
-		return arr;
+		else
+			sort(answer.begin(), answer.end());
+		return answer;
 	}
 }
 
-namespace KATA_0617
+namespace kata26
 {
-	namespace kata30
+	int solution(vector<int> absolutes, vector<bool> signs)
 	{
-		string solution(string s) 
+		int answer = 0;
+
+		for (int i = 0; i < signs.size(); i++)
 		{
-			string answer = "";
-			bool isOdd = s.length() & 1;
-			int index = (int)(s.length() >> 1);
-			if (!isOdd)
-				index--; // index 
-
-			answer += s[index];
-			if (isOdd == false)
-				answer += s[index + 1];
-			return answer;
+			answer += (signs[i] ? 1 : -1) * absolutes[i];
 		}
-	}
-	namespace kata31
-	{
-		string solution(int n)
-		{
-			string answer = "";
-			bool turnSu = true;
-			for (int i = 0; i < n; i++)
-			{
-				if (turnSu)
-					answer += u8"수";
-				else
-					answer += u8"박";
-
-				turnSu = !turnSu;
-			}
-			return answer;
-		}
-	}
-	namespace kata32
-	{
-		int solution(vector<int> a, vector<int> b)
-		{
-			int answer = 0;
-			for (int i = 0; i < a.size(); i++)
-			{
-				answer += a[i] * b[i];
-			}
-			return answer;
-		}
-	}
-	namespace kata33
-	{
-		int solution(int left, int right) 
-		{
-			int answer = 0;
-			int start = 0;
-			int end = 0;
-			int i = 0;
-			int sum = 0;
-			int square = 0;
-
-			// 약수의 개수가 짝수 : 제곱수가 아닌 수, 약수의 개수가 홀수 : 제곱수 
-
-			while (i * i < left) 
-			{
-				i++;
-			}
-			start = i;
-
-			while (i * i <= right) 
-			{
-				i++;
-			}
-			if (i * i > right)
-				end = i - 1;
-
-			sum = (left + right) * (right - left + 1) / 2;
-
-			for (i = start; i <= end; i++)
-			{
-				square += i * i;
-			}
-
-			answer = sum - square * 2;
-
-			return answer;
-		}
-	}
-} // namespace KATA_0617
-
-namespace KATA_0618
-{
-	namespace kata34
-	{
-		string solution(string s)
-		{
-			sort(s.begin(), s.end(), std::greater<char>());
-			return s;
-		}
-	}
-	namespace kata35
-	{
-		//https://school.programmers.co.kr/learn/courses/30/lessons/82612#
-		long long solution(int price, int money, int count)
-		{
-			long long answer = -1;
-			// 시작값 + n * n / 2 = 최종가격
-			int n = (price * count + price);
-			long long totalPrice = (long long)n * count / 2l;
-			answer = money - totalPrice;
-			return answer > 0 ? 0 : -answer;
-		}
+		return answer;
 	}
 }
 
-namespace KATA_0619
+namespace kata27
 {
-	namespace kata36
+
+	string solution(string phone_number)
 	{
-		bool solution(string s) 
+		string answer = phone_number;
+
+		if (answer.size() > 4)
 		{
-			bool answer = true;
-			int size = s.size();
-			if (size != 4 && size != 6)
+			answer.replace(answer.begin(), answer.end() - 4, answer.size() - 4, '*');
+		}
+
+		return answer;
+	}
+}
+int kata28::solution(vector<int> numbers)
+{
+	int answer = -1;
+	const int sumOneToNine = 45;
+	answer = sumOneToNine;
+	for (auto& num : numbers)
+		answer -= num;
+	return answer;
+}
+#pragma endregion KATA_0613
+
+#pragma region KATA_0616
+// KATA_0616
+vector<int> kata29::solution(vector<int> arr)
+{
+	vector<int> answer;
+	int min = std::numeric_limits<int>::max();
+
+	int index = 0;
+	for (auto iter = arr.begin(); iter != arr.end(); iter++)
+	{
+		if (min > *iter)
+		{
+			min = *iter;
+			index = iter - arr.begin();
+		}
+	}
+
+	if (arr.size() == 1)
+	{
+		answer.push_back(-1);
+		return answer;
+	}
+
+	arr.erase(arr.begin() + index);
+
+	return arr;
+}
+#pragma endregion KATA_0616
+
+#pragma region KATA_0617
+// KATA_0617
+namespace kata30
+{
+	string solution(string s)
+	{
+		string answer = "";
+		bool isOdd = s.length() & 1;
+		int index = (int)(s.length() >> 1);
+		if (!isOdd)
+			index--; // index 
+
+		answer += s[index];
+		if (isOdd == false)
+			answer += s[index + 1];
+		return answer;
+	}
+}
+namespace kata31
+{
+	string solution(int n)
+	{
+		string answer = "";
+		bool turnSu = true;
+		for (int i = 0; i < n; i++)
+		{
+			if (turnSu)
+				answer += u8"수";
+			else
+				answer += u8"박";
+
+			turnSu = !turnSu;
+		}
+		return answer;
+	}
+}
+namespace kata32
+{
+	int solution(vector<int> a, vector<int> b)
+	{
+		int answer = 0;
+		for (int i = 0; i < a.size(); i++)
+		{
+			answer += a[i] * b[i];
+		}
+		return answer;
+	}
+}
+namespace kata33
+{
+	int solution(int left, int right)
+	{
+		int answer = 0;
+		int start = 0;
+		int end = 0;
+		int i = 0;
+		int sum = 0;
+		int square = 0;
+
+		// 약수의 개수가 짝수 : 제곱수가 아닌 수, 약수의 개수가 홀수 : 제곱수 
+
+		while (i * i < left)
+		{
+			i++;
+		}
+		start = i;
+
+		while (i * i <= right)
+		{
+			i++;
+		}
+		if (i * i > right)
+			end = i - 1;
+
+		sum = (left + right) * (right - left + 1) / 2;
+
+		for (i = start; i <= end; i++)
+		{
+			square += i * i;
+		}
+
+		answer = sum - square * 2;
+
+		return answer;
+	}
+}
+#pragma endregion KATA_0617
+
+#pragma region KATA_0618
+// KATA_0618
+namespace kata34
+{
+	string solution(string s)
+	{
+		sort(s.begin(), s.end(), std::greater<char>());
+		return s;
+	}
+}
+namespace kata35
+{
+	//https://school.programmers.co.kr/learn/courses/30/lessons/82612#
+	long long solution(int price, int money, int count)
+	{
+		long long answer = -1;
+		// 시작값 + n * n / 2 = 최종가격
+		int n = (price * count + price);
+		long long totalPrice = (long long)n * count / 2l;
+		answer = money - totalPrice;
+		return answer > 0 ? 0 : -answer;
+	}
+}
+#pragma endregion KATA_0618
+
+#pragma region KATA_0619
+// KATA_0619
+namespace kata36
+{
+	bool solution(string s)
+	{
+		bool answer = true;
+		int size = s.size();
+		if (size != 4 && size != 6)
+			return false;
+
+		for (auto& c : s)
+		{
+			if (c < '0' || c > '9')
 				return false;
-
-			for (auto& c : s)
-			{
-				if (c < '0' || c > '9')
-					return false;
-			}
-
-			return true;
 		}
+
+		return true;
 	}
-	namespace kata37
-	{
-		vector<vector<int>> solution(vector<vector<int>> arr1, vector<vector<int>> arr2)
-		{
-			int m = arr1[0].size();
-			vector<vector<int>> answer;
-			for (int i = 0; i < arr1.size(); i++)
-			{
-				vector<int> col;
-				col.reserve(m);
-				answer.push_back(col);
-				vector<int>& ref = answer[i];
-				for (int j = 0; j < m; j++)
-				{
-					ref.push_back(arr1[i][j] + arr2[i][j]);
-				}
-			}
-
-			return answer;
-		}
-	}
-
-	namespace kata38
-	{
-		using namespace std;
-		int solution(void)
-		{
-			int a;
-			int b;
-			cin >> a >> b;
-			for (int i = 0; i < b; i++)
-			{
-				for (int j = 0; j < a; j++)
-					cout << "*";
-				cout << endl;
-			}
-			return 0;
-		}
-	}
-	
-
-} // namespace KATA_0619
-
-namespace KATA_0623
+}
+namespace kata37
 {
-	namespace kata39
+	vector<vector<int>> solution(vector<vector<int>> arr1, vector<vector<int>> arr2)
 	{
-		vector<int> solution(int n, int m)
+		int m = arr1[0].size();
+		vector<vector<int>> answer;
+		for (int i = 0; i < arr1.size(); i++)
 		{
-			int originalA = n, originalB = m;
-
-			// GCD 계산 (유클리드 호제법)
-			while (m != 0) {
-				int temp = n % m;
-				n = m;
-				m = temp;
-			}
-			int gcd = n;
-
-			// LCM 계산 (오버플로우 방지)
-			int lcm = (originalA / gcd) * originalB;
-
-			return { gcd, lcm };
-		}
-	}
-
-	namespace kata40
-	{
-		int solution(int n)
-		{
-			int quot = n;
-			int rem = 0;
-			vector<int> remList;
-			remList.resize(n / 10);
-			
-			while(true)
+			vector<int> col;
+			col.reserve(m);
+			answer.push_back(col);
+			vector<int>& ref = answer[i];
+			for (int j = 0; j < m; j++)
 			{
-				auto [quotTemp, remTemp] = std::div(quot, 3);
-				quot = quotTemp;
-				rem = remTemp;
-				remList.push_back(rem);
-
-				if (quot == 0)
-					break;
+				ref.push_back(arr1[i][j] + arr2[i][j]);
 			}
-
-			std::reverse(remList.begin(), remList.end());
-			
-			int answer = 0;
-			int value = 1; // 자릿 수마다 곱해줄 값
-			for (int thirdOne : remList)
-			{
-				answer = value * thirdOne;
-				value *= 3;
-			}
-
-			return answer;
 		}
+
+		return answer;
 	}
 }
 
-namespace KATA_0624
+namespace kata38
 {
-	namespace kata41
+	using namespace std;
+	int solution(void)
 	{
-		string solution(string s)
-
+		int a;
+		int b;
+		cin >> a >> b;
+		for (int i = 0; i < b; i++)
 		{
-			string answer = "";
-			int num = 0;
-			for (int i = 0; i < s.size(); i++, num++)
-			{
-				if (s[i] == ' ')
-				{
-					num = -1;
-					continue;
-				}
-
-				bool isUpperCase = num == 0 or !((num & 1) == 1);
-
-				s[i] = isUpperCase ? toupper(s[i]) : tolower(s[i]);
-			}
-
-
-			return s;
+			for (int j = 0; j < a; j++)
+				cout << "*";
+			cout << endl;
 		}
-	}
-	namespace kata42
-	{
-		int solution(vector<int> number)
-		{
-			int answer = 0;
-
-			int first;
-			for(int i=0; i<number.size(); i++)
-			{
-				first = number[i];
-				for (int j= i+1; j<number.size(); j++)
-				{
-					int sum = first + number[j];
-					for(int k= j+1; k<number.size(); k++)
-					{
-						if (sum + number[k] == 0)
-							answer++;
-					}
-				}
-			}
-
-			return answer;
-		}
+		return 0;
 	}
 }
 
 
-namespace KATA_0626
+#pragma endregion KATA_0619
+
+#pragma region KATA_0623
+// KATA_0623
+namespace kata39
 {
-	namespace kata43
+	vector<int> solution(int n, int m)
 	{
-		int solution(string t, string p)
+		int originalA = n, originalB = m;
+
+		// GCD 계산 (유클리드 호제법)
+		while (m != 0) {
+			int temp = n % m;
+			n = m;
+			m = temp;
+		}
+		int gcd = n;
+
+		// LCM 계산 (오버플로우 방지)
+		int lcm = (originalA / gcd) * originalB;
+
+		return { gcd, lcm };
+	}
+}
+
+namespace kata40
+{
+	int solution(int n)
+	{
+		int quot = n;
+		int rem = 0;
+		vector<int> remList;
+		remList.resize(n / 10);
+
+		while (true)
 		{
-			string* target;
-			if (t.size() < p.size())
+			auto [quotTemp, remTemp] = std::div(quot, 3);
+			quot = quotTemp;
+			rem = remTemp;
+			remList.push_back(rem);
+
+			if (quot == 0)
+				break;
+		}
+
+		std::reverse(remList.begin(), remList.end());
+
+		int answer = 0;
+		int value = 1; // 자릿 수마다 곱해줄 값
+		for (int thirdOne : remList)
+		{
+			answer = value * thirdOne;
+			value *= 3;
+		}
+
+		return answer;
+	}
+}
+#pragma endregion KATA_0623
+
+#pragma region KATA_0624
+// KATA_0624
+namespace kata41
+{
+	string solution(string s)
+
+	{
+		string answer = "";
+		int num = 0;
+		for (int i = 0; i < s.size(); i++, num++)
+		{
+			if (s[i] == ' ')
 			{
-				target = &t;
+				num = -1;
+				continue;
+			}
+
+			bool isUpperCase = num == 0 or !((num & 1) == 1);
+
+			s[i] = isUpperCase ? toupper(s[i]) : tolower(s[i]);
+		}
+
+
+		return s;
+	}
+}
+namespace kata42
+{
+	int solution(vector<int> number)
+	{
+		int answer = 0;
+
+		int first;
+		for (int i = 0; i < number.size(); i++)
+		{
+			first = number[i];
+			for (int j = i + 1; j < number.size(); j++)
+			{
+				int sum = first + number[j];
+				for (int k = j + 1; k < number.size(); k++)
+				{
+					if (sum + number[k] == 0)
+						answer++;
+				}
+			}
+		}
+
+		return answer;
+	}
+}
+#pragma endregion KATA_0624
+
+
+#pragma region KATA_0626
+// KATA_0626
+namespace kata43
+{
+	int solution(string t, string p)
+	{
+		string* target;
+		if (t.size() < p.size())
+		{
+			target = &t;
+		}
+		else
+		{
+			target = &p;
+		}
+
+		string& shortStr = *target;
+		string& big = target == &p ? t : p;
+
+		int answer = 0;
+		long long shortNum = stoll(shortStr);
+		int loopCnt = (big.size() - shortStr.size() + 1);
+
+		for (int i = 0; i < loopCnt; i++)
+		{
+			string s = big.substr(i, shortStr.size());
+			if (stoll(s) <= shortNum)
+				answer++;
+		}
+
+		return answer;
+	}
+}
+#pragma endregion KATA_0626
+
+#pragma region KATA_0701
+// KATA_0701
+namespace kata44
+{
+	int solution(vector<vector<int>> sizes)
+	{
+		int answer = 0;
+		// 명함을 회전시켜 넣는 것도 고려할 수 있다.
+		// 즉 둘 중 큰 길이를 만족시키기만 하면 된다.
+		// 둘 중 큰 수는 큰 수 로 비교 작은 수는 작은 수로 비교
+		int maxofMax = 0;
+		int minofMin = 0;
+		for (vector<int>& size : sizes)
+		{
+			int w = size[0];
+			int h = size[1];
+
+			// 회전을 고려하여 항상 w가 더 길게 정렬
+			if (w < h) std::swap(w, h);
+
+			// 가장 큰 긴 변과 가장 큰 짧은 변을 찾는다
+			maxofMax = std::max(maxofMax, w);
+			minofMin = std::max(minofMin, h);
+		}
+		return maxofMax * minofMin;
+	}
+}
+#pragma endregion KATA_0701
+
+#pragma region KATA_0702
+// KATA_0702
+namespace kata45
+{
+	string solution(string s, int n)
+	{
+		for (auto iter = s.begin(); iter != s.end(); iter++)
+		{
+			char c = *iter;
+			if (c == ' ')
+				continue;
+
+			int nChar = c + n;
+			char starter = 'a';
+			int overCount = 0;
+			if (c <= 'Z' and nChar > 'Z')
+			{
+				overCount = nChar - 'Z';
+				starter = 'A';
+			}
+			else if (nChar > 'z')
+			{
+				overCount = nChar - 'z';
+				starter = 'a';
+			}
+			if (overCount > 0)
+				nChar = starter + overCount - 1;
+			*iter = nChar;
+		}
+
+		return s;
+	}
+}
+#pragma endregion KATA_0702
+
+#pragma region KATA_0704
+// KATA_0704
+namespace kata46
+{
+	int solution(string input)
+	{
+		unordered_map<string, char> wordToDigit =
+		{
+			{"zero", '0'}, {"one", '1'}, {"two", '2'},   {"three", '3'},
+			{"four", '4'}, {"five", '5'}, {"six", '6'},  {"seven", '7'},
+			{"eight", '8'}, {"nine", '9'}
+		};
+
+		string result;
+		string buffer;
+
+		for (char ch : input)
+		{
+			if (isdigit(ch))
+			{
+				result += ch;
 			}
 			else
 			{
-				target = &p;
-			}
-
-			string& shortStr = *target;
-			string& big = target == &p ? t : p;
-
-			int answer = 0;
-			long long shortNum = stoll(shortStr);
-			int loopCnt = (big.size() - shortStr.size() + 1);
-
-			for (int i = 0; i < loopCnt; i++)
-			{
-				string s = big.substr(i, shortStr.size());
-				if (stoll(s) <= shortNum)
-					answer++;
-			}
-
-			return answer;
-		}
-	}
-}
-
-namespace KATA_0701
-{
-	namespace kata44
-	{
-		int solution(vector<vector<int>> sizes) 
-		{
-			int answer = 0;
-			// 명함을 회전시켜 넣는 것도 고려할 수 있다.
-			// 즉 둘 중 큰 길이를 만족시키기만 하면 된다.
-			// 둘 중 큰 수는 큰 수 로 비교 작은 수는 작은 수로 비교
-			int maxofMax = 0;
-			int minofMin = 0;
-			for (vector<int>& size : sizes)
-			{
-				int w = size[0];
-				int h = size[1];
-
-				// 회전을 고려하여 항상 w가 더 길게 정렬
-				if (w < h) std::swap(w, h);
-
-				// 가장 큰 긴 변과 가장 큰 짧은 변을 찾는다
-				maxofMax = std::max(maxofMax, w);
-				minofMin = std::max(minofMin, h);
-			}
-			return maxofMax * minofMin;
-		}
-	}
-}
-namespace KATA_0702
-{
-	namespace kata45
-	{
-		string solution(string s, int n) 
-		{    
-			for (auto iter = s.begin(); iter != s.end(); iter++)
-			{
-				char c = *iter;
-				if (c == ' ')
-					continue;
-
-				int nChar = c + n;
-				char starter = 'a';
-				int overCount = 0;
-				if (c <= 'Z' and nChar > 'Z')
+				buffer += ch;
+				// 최대 길이 5인 단어들에 대해 검사
+				if (buffer.length() >= 3 && buffer.length() <= 5)
 				{
-					overCount = nChar - 'Z';
-					starter = 'A';
-				}
-				else if (nChar > 'z')
-				{
-					overCount = nChar - 'z';
-					starter = 'a';
-				}
-				if (overCount > 0)
-					nChar = starter + overCount - 1;
-				*iter = nChar;
-			}
-
-			return s;
-		}
-	}
-}
-
-namespace KATA_0704
-{
-	namespace kata46
-	{
-		int solution(string input)
-		{
-			unordered_map<string, char> wordToDigit =
-			{
-				{"zero", '0'}, {"one", '1'}, {"two", '2'},   {"three", '3'},
-				{"four", '4'}, {"five", '5'}, {"six", '6'},  {"seven", '7'},
-				{"eight", '8'}, {"nine", '9'}
-			};
-
-			string result;
-			string buffer;
-
-			for (char ch : input)
-			{
-				if (isdigit(ch))
-				{
-					result += ch;
-				}
-				else
-				{
-					buffer += ch;
-					// 최대 길이 5인 단어들에 대해 검사
-					if (buffer.length() >= 3 && buffer.length() <= 5)
+					if (wordToDigit.count(buffer))
 					{
-						if (wordToDigit.count(buffer))
-						{
-							result += wordToDigit[buffer];
-							buffer.clear();
-						}
+						result += wordToDigit[buffer];
+						buffer.clear();
 					}
 				}
 			}
+		}
 
-			return stoi(result);
-		}
-	}
-	namespace kata47
-	{
-		vector<string> solution(vector<string> strings, int n) 
-		{
-			vector<string> answer;
-			sort(strings.begin(), strings.end(), [&n](auto& a, auto& b)
-			{
-				if (a[n] == b[n])
-				{
-					return a < b;     
-				}  
-				return a[n] < b[n];     
-			});
-			return strings;
-		}
+		return stoi(result);
 	}
 }
-
-namespace KATA_0705
+namespace kata47
 {
-	namespace kata48
-	{ //https://school.programmers.co.kr/learn/courses/30/lessons/42748
-		vector<int> solution(vector<int> array, vector<vector<int>> commands) 
-		{
-			vector<int> answer;
-
-			vector<int> copyArray;
-			for(auto iter = commands.begin(); iter != commands.end(); iter++)
-			{
-				copyArray.clear();
-
-				for(int i = (*iter)[0] - 1; i < (*iter)[1]; i++)
-					copyArray.push_back(array[i]);
-
-				sort(copyArray.begin(),copyArray.end());
-
-				answer.push_back(copyArray[(*iter)[2] - 1]);
-			}
-
-
-			return answer;
-		}
-	}
-}
-
-namespace KATA_0706
-{
-	#include <algorithm>
-	using std::sort;
-	namespace kata49
-	{ //https://school.programmers.co.kr/learn/courses/30/lessons/68644
-		vector<int> solution(vector<int> numbers) 
-		{
-			vector<int> answer;
-
-			// 모든 조합을 찾아야한다.
-			// 현재 인덱스보다 큰 인덱스와 조합하면 되며.
-			for(int i = 0; i < numbers.size() - 1; i++)
-			{
-				for (int j = i + 1; j < numbers.size(); j++)
-				{
-					answer.push_back(numbers[i] + numbers[j]);
-				}
-			}
-			// 중복된 내용을 제거 해준다.
-			sort(answer.begin(), answer.end());
-			auto lastIndex = unique(answer.begin(), answer.end());
-			answer.erase(lastIndex, answer.end());
-
-
-			return answer;
-		}
-	}
-}
-
-namespace KATA_0707
-{
-	namespace kata50
+	vector<string> solution(vector<string> strings, int n)
 	{
-		using namespace std;
-
-		vector<int> solution(string s) 
+		vector<string> answer;
+		sort(strings.begin(), strings.end(), [&n](auto& a, auto& b)
 		{
-			vector<int> answer(s.size());
-
-			unordered_map<char, int> charIndexMap;
-			fill(answer.begin(), answer.end(), -1);
-
-			for (int i = 0; i < s.size(); i++)
+			if (a[n] == b[n])
 			{
-				char c = s[i];
-				auto pairOptional = charIndexMap.try_emplace(c, i);
-				if (pairOptional.second == false)
-				{
-					int lastIndex = charIndexMap[c];
-					answer[i] = i - lastIndex;
-					charIndexMap[c] = i;
-				}
+				return a < b;
 			}
-
-			return answer;
-		}
-	}
-
-	namespace kata51
-	{
-		string solution(vector<int> food)
-		{
-			vector<int> evenCounts(food.size() - 1);
-			int sum = 0;
-			for (int i = 1; i < food.size(); i++)
-			{
-				int foodCount = food[i] & ~1;
-				sum += evenCounts[i - 1] = foodCount;
-			}
-
-			string answer(sum + 1, ' ');
-
-			fill(answer.begin(), answer.end(), '0');
-
-			int index = 0;
-			for (int i = 0; i < evenCounts.size(); i++)
-			{
-				int count = evenCounts[i] >> 1;
-
-				for (int j = 0; j < count; j++)
-				{
-					answer[answer.size() - index - 1] = answer[index] = ('1' + i);
-					index++;
-				}
-			}
-			answer[index] = '0';
-
-			return answer;
-
-		}
+			return a[n] < b[n];
+		});
+		return strings;
 	}
 }
+#pragma endregion KATA_0704
+
+#pragma region KATA_0705
+// KATA_0705
+namespace kata48
+{
+	//https://school.programmers.co.kr/learn/courses/30/lessons/42748
+	vector<int> solution(vector<int> array, vector<vector<int>> commands)
+	{
+		vector<int> answer;
+
+		vector<int> copyArray;
+		for (auto iter = commands.begin(); iter != commands.end(); iter++)
+		{
+			copyArray.clear();
+
+			for (int i = (*iter)[0] - 1; i < (*iter)[1]; i++)
+				copyArray.push_back(array[i]);
+
+			sort(copyArray.begin(), copyArray.end());
+
+			answer.push_back(copyArray[(*iter)[2] - 1]);
+		}
+
+
+		return answer;
+	}
+}
+#pragma endregion KATA_0705
+
+#pragma region KATA_0706
+// KATA_0706
+#include <algorithm>
+using std::sort;
+namespace kata49
+{
+	//https://school.programmers.co.kr/learn/courses/30/lessons/68644
+	vector<int> solution(vector<int> numbers)
+	{
+		vector<int> answer;
+
+		// 모든 조합을 찾아야한다.
+		// 현재 인덱스보다 큰 인덱스와 조합하면 되며.
+		for (int i = 0; i < numbers.size() - 1; i++)
+		{
+			for (int j = i + 1; j < numbers.size(); j++)
+			{
+				answer.push_back(numbers[i] + numbers[j]);
+			}
+		}
+		// 중복된 내용을 제거 해준다.
+		sort(answer.begin(), answer.end());
+		auto lastIndex = unique(answer.begin(), answer.end());
+		answer.erase(lastIndex, answer.end());
+
+
+		return answer;
+	}
+}
+#pragma endregion KATA_0706
+
+#pragma region KATA_0707
+// KATA_0707
+namespace kata50
+{
+	using namespace std;
+
+	vector<int> solution(string s)
+	{
+		vector<int> answer(s.size());
+
+		unordered_map<char, int> charIndexMap;
+		fill(answer.begin(), answer.end(), -1);
+
+		for (int i = 0; i < s.size(); i++)
+		{
+			char c = s[i];
+			auto pairOptional = charIndexMap.try_emplace(c, i);
+			if (pairOptional.second == false)
+			{
+				int lastIndex = charIndexMap[c];
+				answer[i] = i - lastIndex;
+				charIndexMap[c] = i;
+			}
+		}
+
+		return answer;
+	}
+}
+
+namespace kata51
+{
+	string solution(vector<int> food)
+	{
+		vector<int> evenCounts(food.size() - 1);
+		int sum = 0;
+		for (int i = 1; i < food.size(); i++)
+		{
+			int foodCount = food[i] & ~1;
+			sum += evenCounts[i - 1] = foodCount;
+		}
+
+		string answer(sum + 1, ' ');
+
+		fill(answer.begin(), answer.end(), '0');
+
+		int index = 0;
+		for (int i = 0; i < evenCounts.size(); i++)
+		{
+			int count = evenCounts[i] >> 1;
+
+			for (int j = 0; j < count; j++)
+			{
+				answer[answer.size() - index - 1] = answer[index] = ('1' + i);
+				index++;
+			}
+		}
+		answer[index] = '0';
+
+		return answer;
+
+	}
+}
+#pragma endregion KATA_0707
