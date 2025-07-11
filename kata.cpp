@@ -1013,5 +1013,17 @@ namespace kata52
 
 #pragma endregion KATA_0709
 
+#pragma region KATA_0708
+
+namespace kata53
+{ //https://school.programmers.co.r/learn/courses/30/lessons/138477
+	vector<int> solution(int k, vector<int> score);
+}
+
+namespace kata54
+{ //https://school.programmers.co.kr/learn/courses/30/lessons/12901
+	string solution(int a, int b);
+}
+#pragma endregion KATA_0708
 
 ////https://github.com/piecebypiece/Code-kata
