@@ -1026,4 +1026,15 @@ namespace kata54
 }
 #pragma endregion KATA_0708
 
+#pragma region KATA_0715
+
+namespace kata55
+{ //https://school.programmers.co.kr/learn/courses/30/lessons/159994
+	bool searchRoute(vector<string>& cards1, vector<string>& cards2,
+		vector<string>& goal, int i, int j, int targetIndex);
+	string solution(vector<string> cards1, vector<string> cards2, vector<string> goal);
+
+}
+#pragma endregion KATA_0715
+
 ////https://github.com/piecebypiece/Code-kata

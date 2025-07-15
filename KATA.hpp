@@ -402,5 +402,44 @@ namespace kata54
 }
 
 #pragma endregion KATA_0708
+
+#pragma region KATA_0715
+
+namespace kata55
+{ 
+	bool searchRoute(vector<string>& cards1, vector<string>& cards2,
+		vector<string>& goal, int i, int j, int targetIndex)
+	{
+		if (targetIndex >= goal.size())
+			return true;
+
+		const string& goalCard = goal[targetIndex];
+
+		if (cards1.size() > i and cards1[i] == goalCard)
+		{
+			// 다음에 탐색할 정보를 만듬
+			++i, ++targetIndex;
+
+			if (searchRoute(cards1, cards2, goal, i, j, targetIndex))
+				return true;
+		}
+		if ( cards2.size() > j and cards2[j] == goalCard)
+		{
+			// 너머에 길이 있나?
+			++j, ++targetIndex;
+			if (searchRoute(cards1, cards2, goal, i, j, targetIndex))
+				return true;
+		}
+
+		// 양쪽에 길이 없다.
+		return false;
+	}
+	string solution(vector<string> cards1, vector<string> cards2, vector<string> goal)
+	{
+
+	}
+
+}
+#pragma endregion KATA_0715
 #pragma region KATA_070
 #pragma endregion KATA_070
