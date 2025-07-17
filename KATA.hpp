@@ -5,6 +5,9 @@
 #include <set>
 #include <iterator>
 
+#include <numeric>
+#include <algorithm>
+
 using std::string;
 using std::vector;
 
@@ -322,124 +325,43 @@ namespace kata51
 
 #pragma region KATA_0707
 namespace kata52
-{
-	using namespace std;
-
-	int solution(int a, int b, int n) 
-	{
-		// a 교환개수 
-		// b 콜라교환수 
-		// 소지 빈병의 개수
-
-		// 교환 가능 개수는 
-		// 그 다음 교환 가능 개수
-		// n / a * b = r, n % a = c
-		// (c + r) / a * b
-
-		int remein = n;
-		int answer = 0;
-		while (remein >= a)
-		{
-			auto result = div(remein, a);
-			int quotient = result.quot;
-			int remainder = result.rem;
-			int cokeNum = quotient * b;
-			answer += cokeNum;
-			remein = cokeNum + remainder;
-		}
-
-
-		return answer;
-	}
+{ //https://school.programmers.co.kr/learn/courses/30/lessons/132267
+	int solution(int a, int b, int n);
 }
 #pragma endregion KATA_0707
 
 #pragma region KATA_0708
 
 namespace kata53
-{
-	using namespace std;
-
-	vector<int> solution(int k, vector<int> score) 
-	{
-		vector<int> answer;
-		answer.reserve(score.size());
-		multiset<int, greater<int>> sortScore;
-
-		int iK = k -1;
-		for (int i = 0; i < score.size(); i++)
-		{ // https://school.programmers.co.kr/learn/courses/30/lessons/138477
-			sortScore.insert(score[i]);
-
-			if (sortScore.size() < k)
-				answer.push_back(*(--sortScore.end()));
-			else
-				answer.push_back(*(next(sortScore.begin(), iK)));
-		}
-
-		return answer;
-	}
+{ //https://school.programmers.co.r/learn/courses/30/lessons/138477
+	vector<int> solution(int k, vector<int> score);
 }
 
-#include <numeric>
 namespace kata54
-{
-	using namespace std;
-
-	string solution(int a, int b) 
-	{
-		// 16년에 맞춘 날짜 수와 요일
-		vector<int> monthDays = { 31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
-		vector<string> days = {"FRI", "SAT", "SUN", "MON", "TUE", "WED", "THU"};
-
-		// 이번년도의 1월 1일부터 했을 때 몇일인가.
-
-		int totalDay = accumulate(monthDays.begin(), monthDays.begin() + a - 1, 0) + b - 1;
-
-		string answer = days[totalDay % 7];
-		return answer;
-	}
+{ //https://school.programmers.co.kr/learn/courses/30/lessons/12901
+	string solution(int a, int b);
 }
-
 #pragma endregion KATA_0708
 
 #pragma region KATA_0715
 
 namespace kata55
-{ 
+{ //https://school.programmers.co.kr/learn/courses/30/lessons/159994
 	bool searchRoute(vector<string>& cards1, vector<string>& cards2,
-		vector<string>& goal, int i, int j, int targetIndex)
-	{
-		if (targetIndex >= goal.size())
-			return true;
-
-		const string& goalCard = goal[targetIndex];
-
-		if (cards1.size() > i and cards1[i] == goalCard)
-		{
-			// 다음에 탐색할 정보를 만듬
-			++i, ++targetIndex;
-
-			if (searchRoute(cards1, cards2, goal, i, j, targetIndex))
-				return true;
-		}
-		if ( cards2.size() > j and cards2[j] == goalCard)
-		{
-			// 너머에 길이 있나?
-			++j, ++targetIndex;
-			if (searchRoute(cards1, cards2, goal, i, j, targetIndex))
-				return true;
-		}
-
-		// 양쪽에 길이 없다.
-		return false;
-	}
-	string solution(vector<string> cards1, vector<string> cards2, vector<string> goal)
-	{
-
-	}
-
+		vector<string>& goal, int i, int j, int targetIndex);
+	string solution(vector<string> cards1, vector<string> cards2, vector<string> goal);
 }
 #pragma endregion KATA_0715
-#pragma region KATA_070
-#pragma endregion KATA_070
+
+#pragma region KATA_0717
+namespace kata56
+{
+	int solution(int k, int m, vector<int> score);
+}
+
+namespace kata57
+{
+	vector<int> solution(vector<int> answers);
+}
+
+#pragma endregion KATA_0717

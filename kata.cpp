@@ -1002,7 +1002,102 @@ namespace kata51
 
 	}
 }
+
+namespace kata52
+{
+	using namespace std;
+
+	int solution(int a, int b, int n) 
+	{
+		// a 교환개수 
+		// b 콜라교환수 
+		// 소지 빈병의 개수
+
+		// 교환 가능 개수는 
+		// 그 다음 교환 가능 개수
+		// n / a * b = r, n % a = c
+		// (c + r) / a * b
+
+		int remein = n;
+		int answer = 0;
+		while (remein >= a)
+		{
+			auto result = div(remein, a);
+			int quotient = result.quot;
+			int remainder = result.rem;
+			int cokeNum = quotient * b;
+			answer += cokeNum;
+			remein = cokeNum + remainder;
+		}
+
+
+		return answer;
+	}
+}
 #pragma endregion KATA_0707
+
+#pragma region KATA_0708
+
+namespace kata53
+{
+	using namespace std;
+
+	vector<int> solution(int k, vector<int> score) 
+	{
+		vector<int> answer;
+		answer.reserve(score.size());
+		multiset<int, greater<int>> sortScore;
+
+		int iK = k -1;
+		for (int i = 0; i < score.size(); i++)
+		{ // https://school.programmers.co.kr/learn/courses/30/lessons/138477
+			sortScore.insert(score[i]);
+
+			if (sortScore.size() < k)
+				answer.push_back(*(--sortScore.end()));
+			else
+				answer.push_back(*(next(sortScore.begin(), iK)));
+		}
+
+		return answer;
+	}
+}
+
+#include <numeric>
+namespace kata54
+{
+	using namespace std;
+
+	string solution(int a, int b) 
+	{
+		// 16년에 맞춘 날짜 수와 요일
+		vector<int> monthDays = { 31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+		vector<string> days = {"FRI", "SAT", "SUN", "MON", "TUE", "WED", "THU"};
+
+		// 이번년도의 1월 1일부터 했을 때 몇일인가.
+
+		int totalDay = accumulate(monthDays.begin(), monthDays.begin() + a - 1, 0) + b - 1;
+
+		string answer = days[totalDay % 7];
+		return answer;
+	}
+
+	string solution(int a, int b) 
+	{
+		// 16년에 맞춘 날짜 수와 요일
+		vector<int> monthDays = { 31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+		vector<string> days = {"FRI", "SAT", "SUN", "MON", "TUE", "WED", "THU"};
+
+		// 이번년도의 1월 1일부터 했을 때 몇일인가.
+
+		int totalDay = accumulate(monthDays.begin(), monthDays.begin() + a - 1, 0) + b - 1;
+
+		string answer = days[totalDay % 7];
+		return answer;
+	}
+}
+
+#pragma endregion KATA_0708
 
 #pragma region KATA_0709
 
@@ -1017,12 +1112,44 @@ namespace kata52
 
 namespace kata53
 { //https://school.programmers.co.r/learn/courses/30/lessons/138477
-	vector<int> solution(int k, vector<int> score);
+	using namespace std;
+
+	vector<int> solution(int k, vector<int> score) 
+	{
+		vector<int> answer;
+		answer.reserve(score.size());
+		multiset<int, greater<int>> sortScore;
+
+		int iK = k -1;
+		for (int i = 0; i < score.size(); i++)
+		{ 
+			sortScore.insert(score[i]);
+
+			if (sortScore.size() < k)
+				answer.push_back(*(--sortScore.end()));
+			else
+				answer.push_back(*(next(sortScore.begin(), iK)));
+		}
+
+		return answer;
+	}
 }
 
 namespace kata54
 { //https://school.programmers.co.kr/learn/courses/30/lessons/12901
-	string solution(int a, int b);
+	string solution(int a, int b) 
+	{
+		// 16년에 맞춘 날짜 수와 요일
+		vector<int> monthDays = { 31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+		vector<string> days = {"FRI", "SAT", "SUN", "MON", "TUE", "WED", "THU"};
+
+		// 이번년도의 1월 1일부터 했을 때 몇일인가.
+
+		int totalDay = accumulate(monthDays.begin(), monthDays.begin() + a - 1, 0) + b - 1;
+
+		string answer = days[totalDay % 7];
+		return answer;
+	}
 }
 #pragma endregion KATA_0708
 
@@ -1034,7 +1161,130 @@ namespace kata55
 		vector<string>& goal, int i, int j, int targetIndex);
 	string solution(vector<string> cards1, vector<string> cards2, vector<string> goal);
 
+	bool searchRoute(vector<string>& cards1, vector<string>& cards2,
+		vector<string>& goal, int i, int j, int targetIndex)
+	{
+		if (targetIndex >= goal.size())
+			return true;
+
+		const string& goalCard = goal[targetIndex];
+
+		if (cards1.size() > i and cards1[i] == goalCard)
+		{
+			// 다음에 탐색할 정보를 만듬
+			++i, ++targetIndex;
+
+			if (searchRoute(cards1, cards2, goal, i, j, targetIndex))
+				return true;
+		}
+		if ( cards2.size() > j and cards2[j] == goalCard)
+		{
+			// 너머에 길이 있나?
+			++j, ++targetIndex;
+			if (searchRoute(cards1, cards2, goal, i, j, targetIndex))
+				return true;
+		}
+
+		// 양쪽에 길이 없다.
+		return false;
+	}
+	string solution(vector<string> cards1, vector<string> cards2, vector<string> goal)
+	{
+		bool answer = true;
+
+		//완전 탐색으로 해결할 수 있는가?
+
+		answer = searchRoute(cards1, cards2, goal, 0, 0, 0);
+
+		return answer ? "Yes" : "No";
+	}
 }
 #pragma endregion KATA_0715
+
+#pragma region KATA_0717
+namespace kata56
+{
+	using namespace std;
+	int solution(int k, int m, vector<int> score) 
+	{
+		sort(score.begin(), score.end());
+
+		// 작은건 모두 앞에 있다.
+		// 남는 사과는 버린다.
+
+		// m 으로 딱 나누어 떨어지는 경우.
+		// n 개씩 버릴 수 있는 경우가 있다.
+
+		// 높은 점수부터 골라서 넣어보자
+		int answer = 0;
+		int boxCount = 0;
+		int boxMin = 10; // 24 // 6, 3
+		for (int i = 0; i < score.size(); i++)
+		{
+			if ( score.size() - i < m - boxCount)
+				break;
+
+			int reverseI = score.size() - 1 - i;
+
+
+			boxCount++;
+			int apple = score[reverseI];
+
+			if ( apple < boxMin)
+				boxMin = apple;
+
+			if (boxCount == m)
+			{
+				//cout << "boxMin " << i + 1 << ": " << boxMin << endl;
+				answer += m * boxMin;
+
+				boxCount = 0;
+				boxMin = 10;
+			}
+		}
+
+
+		return answer;
+	}
+}
+namespace katta57
+{
+	vector<int> solution(vector<int> answers) 
+	{
+		vector<vector<int>> supojas
+		{
+			{ 1, 2, 3, 4, 5 },
+			{ 2, 1, 2, 3, 2, 4, 2, 5 },
+			{ 3, 3, 1, 1, 2, 2, 4, 4, 5, 5 },
+		};
+		vector<int> counts
+		{
+			0,0,0
+		};
+
+		for (int i = 0 ; i < answers.size(); i++)
+		{
+			for (int j = 0 ; j < supojas.size(); i++)
+			{
+				int index = i % supojas[j].size();
+				int supojaAns = supojas[i][index];
+				if (supojaAns == answers[i])
+				{
+					counts[j]++;
+				}
+			}
+		}
+
+		int max = *max_element(counts.begin(), counts.end());
+
+		vector<int> answer;
+		for (int i = 0 ; i < counts.size(); i++)
+			if (max == counts[i])
+				answer.push_back(i);
+
+		return answer;
+	}
+}
+#pragma endregion KATA_0717
 
 ////https://github.com/piecebypiece/Code-kata
