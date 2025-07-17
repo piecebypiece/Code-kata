@@ -355,12 +355,12 @@ namespace kata55
 
 #pragma region KATA_0717
 namespace kata56
-{
+{ //https://school.programmers.co.kr/learn/courses/30/lessons/135808
 	int solution(int k, int m, vector<int> score);
 }
 
 namespace kata57
-{
+{ // https://school.programmers.co.kr/learn/courses/30/lessons/42840?language=cpp
 	vector<int> solution(vector<int> answers);
 }
 

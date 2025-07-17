@@ -1081,21 +1081,8 @@ namespace kata54
 		string answer = days[totalDay % 7];
 		return answer;
 	}
-
-	string solution(int a, int b) 
-	{
-		// 16년에 맞춘 날짜 수와 요일
-		vector<int> monthDays = { 31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
-		vector<string> days = {"FRI", "SAT", "SUN", "MON", "TUE", "WED", "THU"};
-
-		// 이번년도의 1월 1일부터 했을 때 몇일인가.
-
-		int totalDay = accumulate(monthDays.begin(), monthDays.begin() + a - 1, 0) + b - 1;
-
-		string answer = days[totalDay % 7];
-		return answer;
-	}
 }
+
 
 #pragma endregion KATA_0708
 
@@ -1108,50 +1095,7 @@ namespace kata52
 
 #pragma endregion KATA_0709
 
-#pragma region KATA_0708
 
-namespace kata53
-{ //https://school.programmers.co.r/learn/courses/30/lessons/138477
-	using namespace std;
-
-	vector<int> solution(int k, vector<int> score) 
-	{
-		vector<int> answer;
-		answer.reserve(score.size());
-		multiset<int, greater<int>> sortScore;
-
-		int iK = k -1;
-		for (int i = 0; i < score.size(); i++)
-		{ 
-			sortScore.insert(score[i]);
-
-			if (sortScore.size() < k)
-				answer.push_back(*(--sortScore.end()));
-			else
-				answer.push_back(*(next(sortScore.begin(), iK)));
-		}
-
-		return answer;
-	}
-}
-
-namespace kata54
-{ //https://school.programmers.co.kr/learn/courses/30/lessons/12901
-	string solution(int a, int b) 
-	{
-		// 16년에 맞춘 날짜 수와 요일
-		vector<int> monthDays = { 31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
-		vector<string> days = {"FRI", "SAT", "SUN", "MON", "TUE", "WED", "THU"};
-
-		// 이번년도의 1월 1일부터 했을 때 몇일인가.
-
-		int totalDay = accumulate(monthDays.begin(), monthDays.begin() + a - 1, 0) + b - 1;
-
-		string answer = days[totalDay % 7];
-		return answer;
-	}
-}
-#pragma endregion KATA_0708
 
 #pragma region KATA_0715
 
@@ -1264,10 +1208,10 @@ namespace katta57
 
 		for (int i = 0 ; i < answers.size(); i++)
 		{
-			for (int j = 0 ; j < supojas.size(); i++)
+			for (int j = 0 ; j < supojas.size(); j++)
 			{
 				int index = i % supojas[j].size();
-				int supojaAns = supojas[i][index];
+				int supojaAns = supojas[j][index];
 				if (supojaAns == answers[i])
 				{
 					counts[j]++;
