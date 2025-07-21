@@ -2,6 +2,7 @@
 #include <iostream>
 #include <algorithm>
 #include <unordered_map>
+
 #include "KATA.hpp"
 
 using std::cout;
@@ -1231,4 +1232,156 @@ namespace katta57
 }
 #pragma endregion KATA_0717
 
+
+#pragma region KATA_0718
+
+namespace kata58
+{ //https://school.programmers.co.kr/learn/courses/30/lessons/12977
+	int solution(vector<int> nums) 
+	{
+		int answer = 0;
+		//소수인 프라임 넘버를 계산해내는 것은 불가능함.
+		int size = nums.size();
+		for (int i = 0; i < size; i++)
+		{
+			for (int j = i + 1; j < size; j++)
+			{
+				for (int k = j + 1; k < size; k++)
+				{
+					int n = nums[i] + nums[j] + nums[k];
+					bool bPrime = true;
+					for (int x = 2; x*x <= n; ++x) 
+					{
+						if (n % x == 0) 
+						{
+							bPrime = false;
+							break;
+						}
+					}
+					if (bPrime)
+					{
+						++answer;
+					}
+				}
+			}
+		}
+
+
+
+		return answer;
+	}
+}
+
+#pragma endregion KATA_0718
+
+#pragma region KATA_0720
+
+namespace kata59
+{	// https://school.programmers.co.kr/learn/courses/30/lessons/161989
+	int solution(int n, int m, vector<int> section)
+	{
+		// 섹션의 개수가 몇개인지 세는 것.
+		// 하지만 섹션은 m 이내라면 하나로 칠 수 있다.
+		int answer = 1;
+		int index = 1;
+		int lastSection = section[0];
+		while (index < section.size())
+		{
+			while (index < section.size())
+			{
+				int curSection = section[index];
+				if (curSection - lastSection <= m - 1)
+				{
+					index++;
+					continue;
+				}
+				break;
+			}
+			if (index < section.size())
+			{
+				lastSection = section[index++];
+				answer++;
+			}
+		}
+		return answer;
+	}
+}
+
+
+#pragma endregion
+
+#pragma region KATA_0721
+
+namespace kata60
+{
+	int countDivisors(int n)
+	{
+		int count = 0;
+		for (int i = 1; i * i <= n; ++i) 
+		{
+			if (n % i == 0) 
+			{
+				// i와 n/i가 같은 경우는 한 번만 증가
+				count += (i * i == n) ? 1 : 2; 
+			}
+		}
+		return count;
+	}
+	int solution(int number, int limit, int power)
+	{
+		vector<int> memory;
+		memory.reserve(number);
+
+		for (int i =0; i < number; i++)
+		{
+			memory.push_back(countDivisors(i+1));
+		}
+
+		int answer = 0;
+
+		for (int dividerNum : memory)
+		{
+			answer += dividerNum > limit ? power : dividerNum;
+		}
+
+		return answer;
+	}
+}
+
+namespace kata61
+{ //https://school.programmers.co.kr/learn/courses/30/lessons/77484
+	using namespace std;
+	vector<int> solution(vector<int> lottos, vector<int> win_nums)
+	{
+		vector<int> answer;
+
+		// lottos 와 win_nums 가 일치하는 개수
+		// 그중 0의 개수 + - 한 등수가 최고, 최저 등수가 되는거 아닌가?
+		int numZero = 0;
+		int correctNum = 0;
+		for (int lotto : lottos)
+		{
+			if (lotto == 0)
+			{
+				++numZero;
+				continue;
+			}
+			// 중복 숫자가 있을 수 있기 때문에 일치한 숫자는 제거
+			for (int i = 0; i < win_nums.size(); ++i)
+			{   
+				if (win_nums[i] == lotto)
+				{
+					win_nums[i] = -1;
+					win_nums.erase(win_nums.begin() + i);
+					++correctNum;
+					break;  // 여러 숫자가 일치하는지는 볼 이유가 없다.
+				}
+			}
+		}
+		answer.push_back(min(7 - (correctNum + numZero), 6) );
+		answer.push_back(min(7 - correctNum, 6) );
+		return answer;
+	}
+}
+#pragma endregion KATA_0721
 ////https://github.com/piecebypiece/Code-kata

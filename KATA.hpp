@@ -365,3 +365,34 @@ namespace kata57
 }
 
 #pragma endregion KATA_0717
+
+#pragma region KATA_0718
+
+namespace kata58
+{ //https://school.programmers.co.kr/learn/courses/30/lessons/12977
+	int solution(vector<int> nums);
+}
+#pragma endregion KATA_0718
+
+#pragma region KATA_0720
+
+namespace kata59
+{	// https://school.programmers.co.kr/learn/courses/30/lessons/161989
+	int solution(int n, int m, vector<int> section);
+}
+
+#pragma endregion
+
+#pragma region KATA_0721
+
+namespace kata60
+{	//https://school.programmers.co.kr/learn/courses/30/lessons/136798
+	int countDivisors(int n);
+	int solution(int number, int limit, int power);
+}
+
+namespace kata61
+{ //https://school.programmers.co.kr/learn/courses/30/lessons/77484
+	vector<int> solution(vector<int> lottos, vector<int> win_nums);
+}
+#pragma endregion KATA_0721
