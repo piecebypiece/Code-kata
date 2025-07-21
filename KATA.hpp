@@ -381,7 +381,7 @@ namespace kata59
 	int solution(int n, int m, vector<int> section);
 }
 
-#pragma endregion
+#pragma endregion KATA_0720
 
 #pragma region KATA_0721
 
