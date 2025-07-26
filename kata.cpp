@@ -1384,4 +1384,165 @@ namespace kata61
 	}
 }
 #pragma endregion KATA_0721
+
+#pragma region KATA_0724
+
+
+namespace kata62
+{	//https://school.programmers.co.kr/learn/courses/30/lessons/133499
+	using namespace std;
+	int solution(vector<string> babbling) 
+	{
+		vector<string> canBabling{ "aya", "ye", "woo", "ma" };
+
+			// 각 단어 가 canBaling 중 하나거나 그 조합으로 만들어져야 한다.
+			// 같은 단어가 연속해서 조합되는 경우는 없다
+
+		int answer = 0;
+
+		for (string s : babbling)
+		{
+			int index = 0;
+			int lastIndex = -1;
+			while (true)
+			{
+				bool findSomthing = false;
+				for (int i = 0; i < canBabling.size(); ++i)
+				{
+					if (lastIndex == i) continue;
+
+					string o = canBabling[i];
+					if (s.compare(index, o.size(), o) == 0)
+					{
+						index += o.size();
+						lastIndex = i;
+						findSomthing = true;
+						break;
+					}
+				}
+
+				if (findSomthing == false or index >= s.size())
+					break;
+			}
+			if (index >= s.size())
+			{
+				++answer;
+			}
+		}
+
+
+		return answer;
+	}
+}
+
+namespace kata63
+{
+	using namespace std;
+	string solution(string X, string Y) 
+	{
+		string& shortS = X.size() < Y.size() ? X : Y;
+		vector<int> numbers(10, 0), numbers2(10, 0);
+
+		for (char xc : X)
+			++numbers[xc - '0'];
+		for (char yc : Y)
+			++numbers2[yc - '0'];
+
+
+		vector<char> pair;
+		pair.reserve(shortS.size());
+		// 정렬 수고를 덜기 위해서 큰 수 부터
+		for (int i = 9; i > -1; i--)
+		{
+			int pairCount = min(numbers[i], numbers2[i]);
+			if (pairCount  > 0)
+			{
+				if (i == 0 and pair.size() == 0)
+				{
+					pairCount = 1;
+				}
+				for (int j = 0; j < pairCount; ++j)
+					pair.push_back('0' + i);
+			}
+		}
+
+		return pair.size() > 0 ? string (pair.begin(), pair.end()) : "-1";
+	}
+}
+
+#pragma endregion KATA_0721
+
+#pragma region KATA_0726
+namespace kata64
+{
+	using namespace std;
+	int solution(int n, vector<int> lost, vector<int> reserve)
+	{
+		// lost index +-1 까지 reserve 에 있어야 한다.
+		// 최대한으로 빌려줄 것
+		// reserve 에 있는 모든 요소를 최대한 소모 해야하기 때문에 소모 못하는 상황이 없어야한다.
+		// reserve N이 lost 에 쳐할 수 있는 상황은 
+		// 값 차이가 2
+		// 값 차이 없음
+		// 값 차이 1
+
+		// reserve 가 하나 밖에 줄 수 없다면 주는 것이 이득이다.
+		// 이후에 어떤 상황이 되던 하나에만 해당하는 reserve는 그곳이 아니면 소모 될 수 없기 때문.
+		// 따라서 하나인 애들은 무조건 빌려줘야한다.
+		int answer = 0;
+		vector<int> lostSheet(n, 0);
+		//vector<int> reserveSheet(n, 0);
+
+		sort (lost.begin(), lost.end());
+		sort (reserve.begin(), reserve.end());
+
+		for (int i : lost)
+			lostSheet[i - 1] = 1;
+
+
+		for (int i = 0; i < reserve.size(); ++i)
+		{
+			int target = reserve[i] - 1;
+			if (lostSheet[target] != 0)
+			{
+				reserve[i] = lostSheet[target] = 0;
+				++answer;
+			}
+		}
+
+
+		for (int i = 0; i < reserve.size(); ++i)
+		{
+			if (reserve[i] == 0)
+				continue;
+			int target = reserve[i] - 1;
+			bool findReserve = false;
+			
+			if (target - 1 >= 0 and lostSheet[target - 1] != 0)
+			{
+				--target;
+				findReserve = true;
+			}
+			else if(target + 1 < lostSheet.size() and lostSheet[target + 1] != 0)	
+			{
+				++target;
+				findReserve = true;
+			}
+
+			if (findReserve)
+			{
+				//reserveSheet[i] = 0;
+				lostSheet[target] = 0;
+				++answer;
+			}
+		}
+		return n - lost.size() + answer;
+	}
+}
+#pragma endregion KATA_0726
+
+
+//#pragma region KATA_
+//#pragma endregion KATA_
+
 ////https://github.com/piecebypiece/Code-kata

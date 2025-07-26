@@ -396,3 +396,29 @@ namespace kata61
 	vector<int> solution(vector<int> lottos, vector<int> win_nums);
 }
 #pragma endregion KATA_0721
+
+#pragma region KATA_0724
+
+namespace kata62
+{	//https://school.programmers.co.kr/learn/courses/30/lessons/133499
+	int solution(vector<string> babbling);
+}
+namespace kata63
+{
+	//https://school.programmers.co.kr/learn/courses/30/lessons/131128
+	string solution(string X, string Y);
+}
+#pragma endregion KATA_0721
+
+
+#pragma region KATA_0727
+namespace kata64
+{ // https://school.programmers.co.kr/learn/courses/30/lessons/42862
+	int solution(int n, vector<int> lost, vector<int> reserve);
+}
+
+#pragma endregion KATA_0726
+
+
+//#pragma region KATA_
+//#pragma endregion KATA_

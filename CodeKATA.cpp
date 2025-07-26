@@ -21,4 +21,8 @@ int main()
 
 	//KATA_0612::kata23::solution(7999999);
 	//kata57::solution(vector<int>{1, 3, 4, 6});
+	//kata62::solution({ "ayaye", "uuu", "yeye", "yemawoo", "ayaayaa" });
+	//kata63::solution("5525", "1255");
+	//kata64::solution(10, { 1, 3, 5, 6, 8, 9 }, { 2, 4, 6});
+	kata64::solution(2, { 1 }, { 2 });
 }
