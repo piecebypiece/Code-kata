@@ -419,6 +419,17 @@ namespace kata64
 
 #pragma endregion KATA_0726
 
+#pragma region KATA_0801
+namespace kata65
+{  //https://school.programmers.co.kr/learn/courses/30/lessons/140108
+	int solution(string s);
+}
+namespace kata66
+{  //https://school.programmers.co.kr/learn/courses/30/lessons/160586
+	vector<int> solution(vector<string> keymap, vector<string> targets);
+}
+#pragma endregion KATA_0801
+
 
 //#pragma region KATA_
 //#pragma endregion KATA_

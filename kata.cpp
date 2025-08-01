@@ -1065,6 +1065,7 @@ namespace kata53
 }
 
 #include <numeric>
+#include <map>
 namespace kata54
 {
 	using namespace std;
@@ -1541,6 +1542,91 @@ namespace kata64
 }
 #pragma endregion KATA_0726
 
+#pragma region KATA_0801
+namespace kata65
+{  //https://school.programmers.co.kr/learn/courses/30/lessons/140108
+	using namespace std;
+
+	int solution(string s) 
+	{
+		int answer = 0;
+
+		int count = 0;
+		int other = 0;
+		char x = '\0';
+		for (char c : s)
+		{
+			if (count == 0)
+			{
+				x = c;
+				count = 1;
+				other = 0;
+				++answer;
+			}
+			else if (x == c)
+			{
+				++count;
+			}
+			else
+			{
+				++other;
+			}
+
+			if (other == count)
+			{
+				count = 0;
+			}
+		}
+		return answer;
+	}
+}
+
+namespace kata66
+{
+	using namespace std;
+	vector<int> solution(vector<string> keymap, vector<string> targets)
+	{
+		map<char, int> inputMap;
+
+		for (string s : keymap)
+		{
+			for (int i = 0; i < s.size(); ++i)
+			{
+				char c = s[i];
+				int inputCount = inputMap[c];
+				// 누르는 횟수니까 + 1
+				inputMap[c] = inputCount == 0 ? i + 1 :
+					min(i + 1, inputCount);
+			}
+
+		}
+
+
+		vector<int> answer(targets.size(), -1);
+
+		for (int i = 0; i < targets.size(); i++)
+		{
+			int count = 0;
+			for (char c : targets[i])
+			{
+				if (inputMap.find(c) == inputMap.end())
+				{
+					count = -1;
+					break;
+				}
+				else
+				{
+					count += inputMap[c];
+				}
+			}
+			answer[i] = count;
+		}
+
+		return answer;
+	}
+}
+
+#pragma endregion KATA_0801
 
 //#pragma region KATA_
 //#pragma endregion KATA_
