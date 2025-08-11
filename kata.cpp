@@ -8,7 +8,7 @@
 using std::cout;
 using std::endl;
 using std::unordered_map;
-
+using namespace std;
 
 #pragma region KATA_0527
 // KATA_0527
@@ -1008,7 +1008,7 @@ namespace kata52
 {
 	using namespace std;
 
-	int solution(int a, int b, int n) 
+	int solution(int a, int b, int n)
 	{
 		// a 교환개수 
 		// b 콜라교환수 
@@ -1043,13 +1043,13 @@ namespace kata53
 {
 	using namespace std;
 
-	vector<int> solution(int k, vector<int> score) 
+	vector<int> solution(int k, vector<int> score)
 	{
 		vector<int> answer;
 		answer.reserve(score.size());
 		multiset<int, greater<int>> sortScore;
 
-		int iK = k -1;
+		int iK = k - 1;
 		for (int i = 0; i < score.size(); i++)
 		{ // https://school.programmers.co.kr/learn/courses/30/lessons/138477
 			sortScore.insert(score[i]);
@@ -1070,11 +1070,11 @@ namespace kata54
 {
 	using namespace std;
 
-	string solution(int a, int b) 
+	string solution(int a, int b)
 	{
 		// 16년에 맞춘 날짜 수와 요일
-		vector<int> monthDays = { 31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
-		vector<string> days = {"FRI", "SAT", "SUN", "MON", "TUE", "WED", "THU"};
+		vector<int> monthDays = { 31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+		vector<string> days = { "FRI", "SAT", "SUN", "MON", "TUE", "WED", "THU" };
 
 		// 이번년도의 1월 1일부터 했을 때 몇일인가.
 
@@ -1123,7 +1123,7 @@ namespace kata55
 			if (searchRoute(cards1, cards2, goal, i, j, targetIndex))
 				return true;
 		}
-		if ( cards2.size() > j and cards2[j] == goalCard)
+		if (cards2.size() > j and cards2[j] == goalCard)
 		{
 			// 너머에 길이 있나?
 			++j, ++targetIndex;
@@ -1151,7 +1151,7 @@ namespace kata55
 namespace kata56
 {
 	using namespace std;
-	int solution(int k, int m, vector<int> score) 
+	int solution(int k, int m, vector<int> score)
 	{
 		sort(score.begin(), score.end());
 
@@ -1167,7 +1167,7 @@ namespace kata56
 		int boxMin = 10; // 24 // 6, 3
 		for (int i = 0; i < score.size(); i++)
 		{
-			if ( score.size() - i < m - boxCount)
+			if (score.size() - i < m - boxCount)
 				break;
 
 			int reverseI = score.size() - 1 - i;
@@ -1176,7 +1176,7 @@ namespace kata56
 			boxCount++;
 			int apple = score[reverseI];
 
-			if ( apple < boxMin)
+			if (apple < boxMin)
 				boxMin = apple;
 
 			if (boxCount == m)
@@ -1195,7 +1195,7 @@ namespace kata56
 }
 namespace katta57
 {
-	vector<int> solution(vector<int> answers) 
+	vector<int> solution(vector<int> answers)
 	{
 		vector<vector<int>> supojas
 		{
@@ -1208,9 +1208,9 @@ namespace katta57
 			0,0,0
 		};
 
-		for (int i = 0 ; i < answers.size(); i++)
+		for (int i = 0; i < answers.size(); i++)
 		{
-			for (int j = 0 ; j < supojas.size(); j++)
+			for (int j = 0; j < supojas.size(); j++)
 			{
 				int index = i % supojas[j].size();
 				int supojaAns = supojas[j][index];
@@ -1224,7 +1224,7 @@ namespace katta57
 		int max = *max_element(counts.begin(), counts.end());
 
 		vector<int> answer;
-		for (int i = 0 ; i < counts.size(); i++)
+		for (int i = 0; i < counts.size(); i++)
 			if (max == counts[i])
 				answer.push_back(i);
 
@@ -1238,7 +1238,7 @@ namespace katta57
 
 namespace kata58
 { //https://school.programmers.co.kr/learn/courses/30/lessons/12977
-	int solution(vector<int> nums) 
+	int solution(vector<int> nums)
 	{
 		int answer = 0;
 		//소수인 프라임 넘버를 계산해내는 것은 불가능함.
@@ -1251,9 +1251,9 @@ namespace kata58
 				{
 					int n = nums[i] + nums[j] + nums[k];
 					bool bPrime = true;
-					for (int x = 2; x*x <= n; ++x) 
+					for (int x = 2; x * x <= n; ++x)
 					{
-						if (n % x == 0) 
+						if (n % x == 0)
 						{
 							bPrime = false;
 							break;
@@ -1318,12 +1318,12 @@ namespace kata60
 	int countDivisors(int n)
 	{
 		int count = 0;
-		for (int i = 1; i * i <= n; ++i) 
+		for (int i = 1; i * i <= n; ++i)
 		{
-			if (n % i == 0) 
+			if (n % i == 0)
 			{
 				// i와 n/i가 같은 경우는 한 번만 증가
-				count += (i * i == n) ? 1 : 2; 
+				count += (i * i == n) ? 1 : 2;
 			}
 		}
 		return count;
@@ -1333,9 +1333,9 @@ namespace kata60
 		vector<int> memory;
 		memory.reserve(number);
 
-		for (int i =0; i < number; i++)
+		for (int i = 0; i < number; i++)
 		{
-			memory.push_back(countDivisors(i+1));
+			memory.push_back(countDivisors(i + 1));
 		}
 
 		int answer = 0;
@@ -1369,7 +1369,7 @@ namespace kata61
 			}
 			// 중복 숫자가 있을 수 있기 때문에 일치한 숫자는 제거
 			for (int i = 0; i < win_nums.size(); ++i)
-			{   
+			{
 				if (win_nums[i] == lotto)
 				{
 					win_nums[i] = -1;
@@ -1379,8 +1379,8 @@ namespace kata61
 				}
 			}
 		}
-		answer.push_back(min(7 - (correctNum + numZero), 6) );
-		answer.push_back(min(7 - correctNum, 6) );
+		answer.push_back(min(7 - (correctNum + numZero), 6));
+		answer.push_back(min(7 - correctNum, 6));
 		return answer;
 	}
 }
@@ -1392,12 +1392,12 @@ namespace kata61
 namespace kata62
 {	//https://school.programmers.co.kr/learn/courses/30/lessons/133499
 	using namespace std;
-	int solution(vector<string> babbling) 
+	int solution(vector<string> babbling)
 	{
 		vector<string> canBabling{ "aya", "ye", "woo", "ma" };
 
-			// 각 단어 가 canBaling 중 하나거나 그 조합으로 만들어져야 한다.
-			// 같은 단어가 연속해서 조합되는 경우는 없다
+		// 각 단어 가 canBaling 중 하나거나 그 조합으로 만들어져야 한다.
+		// 같은 단어가 연속해서 조합되는 경우는 없다
 
 		int answer = 0;
 
@@ -1439,7 +1439,7 @@ namespace kata62
 namespace kata63
 {
 	using namespace std;
-	string solution(string X, string Y) 
+	string solution(string X, string Y)
 	{
 		string& shortS = X.size() < Y.size() ? X : Y;
 		vector<int> numbers(10, 0), numbers2(10, 0);
@@ -1456,7 +1456,7 @@ namespace kata63
 		for (int i = 9; i > -1; i--)
 		{
 			int pairCount = min(numbers[i], numbers2[i]);
-			if (pairCount  > 0)
+			if (pairCount > 0)
 			{
 				if (i == 0 and pair.size() == 0)
 				{
@@ -1467,7 +1467,7 @@ namespace kata63
 			}
 		}
 
-		return pair.size() > 0 ? string (pair.begin(), pair.end()) : "-1";
+		return pair.size() > 0 ? string(pair.begin(), pair.end()) : "-1";
 	}
 }
 
@@ -1494,8 +1494,8 @@ namespace kata64
 		vector<int> lostSheet(n, 0);
 		//vector<int> reserveSheet(n, 0);
 
-		sort (lost.begin(), lost.end());
-		sort (reserve.begin(), reserve.end());
+		sort(lost.begin(), lost.end());
+		sort(reserve.begin(), reserve.end());
 
 		for (int i : lost)
 			lostSheet[i - 1] = 1;
@@ -1518,13 +1518,13 @@ namespace kata64
 				continue;
 			int target = reserve[i] - 1;
 			bool findReserve = false;
-			
+
 			if (target - 1 >= 0 and lostSheet[target - 1] != 0)
 			{
 				--target;
 				findReserve = true;
 			}
-			else if(target + 1 < lostSheet.size() and lostSheet[target + 1] != 0)	
+			else if (target + 1 < lostSheet.size() and lostSheet[target + 1] != 0)
 			{
 				++target;
 				findReserve = true;
@@ -1547,7 +1547,7 @@ namespace kata65
 {  //https://school.programmers.co.kr/learn/courses/30/lessons/140108
 	using namespace std;
 
-	int solution(string s) 
+	int solution(string s)
 	{
 		int answer = 0;
 
@@ -1627,6 +1627,109 @@ namespace kata66
 }
 
 #pragma endregion KATA_0801
+
+#pragma regin KATA_0804
+
+namespace kata67
+{
+	using namespace std;
+
+	string solution(string s, string skip, int index)
+	{
+		string answer = "";
+		sort(skip.begin(), skip.end());
+		for (char c : s)
+		{
+			int r = c;
+			for (int j = 0; j < index; j++)
+			{
+				r++;
+				for (int i = 0; i < skip.size(); i++)
+				{
+					char skipC = skip[i];
+					if (r == skipC)
+					{
+						++r;
+					}
+					if (r > 'z')
+					{
+						r = r - 'z' + 'a' - 1;
+						i = -1; // a로 초기화 됐음으로 처음부터 다시 검사
+					}
+				}
+			}
+			answer.push_back(r);
+		}
+
+		return answer;
+	}
+}
+#pragma endregion KATA_0804
+
+#pragma region KATA_0806
+
+namespace kata68
+{
+	int solution(vector<int> ingredient)
+	{
+		//아래에서 부터위로
+		// 가장 간단하게 해결
+		int answer = 0;
+		vector<int> recepi = { 1, 2, 3, 1 };
+		vector<int> recepiIndes = { -1, -1, -1, -1 };
+		int curRecepi = 0;
+		for (int i = 0; i < ingredient.size(); ++i)
+		{
+			int material = ingredient[i];
+
+			if (material == 0)
+				continue;
+
+			if (material != recepi[curRecepi])
+				curRecepi = 0;
+			if (material == recepi[curRecepi])
+			{
+				recepiIndes[curRecepi++] = i;
+				if (recepi.size() <= curRecepi)
+				{
+					curRecepi = 0;
+					answer++;
+					// 재료가 남았는지 확인
+					if (ingredient.size() - i + 1 <= 0)
+						break;
+
+					for (int j = 0; j < recepiIndes.size(); j++)
+					{
+						ingredient[recepiIndes[j]] = 0;
+					}
+					i = recepiIndes[0] - 1;
+					// 버거를 만들어서 영향을 줄 수 있는만큼만 뒤로 이동.
+					for (int j = 0; j < recepi.size(); j++, i--)
+					{
+						if (i == -1)
+							break;
+						if (ingredient[i] == 0)
+						{	// 무효처리
+							--j;
+							continue;
+						}
+					}
+					continue;
+				}
+			}
+
+		}
+		return answer;
+	}
+
+}
+
+#pragma endregion KATA_0806
+
+
+
+
+
 
 //#pragma region KATA_
 //#pragma endregion KATA_

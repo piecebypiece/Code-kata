@@ -430,6 +430,20 @@ namespace kata66
 }
 #pragma endregion KATA_0801
 
+#pragma regin KATA_0804
+namespace kata67
+{	//https://school.programmers.co.kr/learn/courses/30/lessons/155652
+
+	string solution(string s, string skip, int index);
+}
+#pragma endregion KATA_0804
+#pragma region KATA_0806
+
+namespace kata68
+{
+	int solution(vector<int> ingredient);
+}
+#pragma endregion KATA_0806
 
 //#pragma region KATA_
 //#pragma endregion KATA_
