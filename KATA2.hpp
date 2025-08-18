@@ -308,6 +308,69 @@ namespace kata73
 
 #pragma endregion KATA_0811
 
+#pragma region KATA_0818
+
+namespace kata74
+{
+	vector<int> solution(vector<string> id_list, vector<string> report, int k) 
+	{
+
+		int idCount = id_list.size();
+		unordered_map<string, set<string>> reportTable(idCount);
+		unordered_map<string, int> id_Index(idCount);
+
+		for (int i = 0; i < id_list.size(); i++)
+		{
+			string& s = id_list[i];
+			reportTable.emplace(s, set<string>());
+			id_Index.emplace(s, i);
+		}
+
+		for (string reportMsg : report)
+		{
+			auto termIter = find(reportMsg.begin(), reportMsg.end(), ' ');
+
+			if (termIter != reportMsg.end())
+			{
+				// 신고자
+				string first(reportMsg.begin(), termIter);
+
+				// 신고대상
+				string second(termIter + 1, reportMsg.end());
+
+				reportTable[second].emplace(first);
+			}
+		}
+
+		vector<int> answer(id_list.size(), 0);
+
+		for (int i = 0; i < id_list.size(); i++)
+		{
+			auto iter = reportTable.find(id_list[i]);
+
+			if (iter == reportTable.end())
+				continue;
+
+			auto reporterSet = iter->second;
+			// 신고자가 2 이상임으로 밴 대상
+			if (reporterSet.size() > k)
+			{
+				for (const string& reporter : reporterSet)
+				{
+					int index = id_Index[reporter];
+					answer[index]++;
+				}
+			}
+
+		}
+
+		return answer;
+	}
+}
+
+#pragma endregion KATA_0818
+
+
 //#pragma region KATA_
 //#pragma endregion KATA_
 //https://github.com/piecebypiece/Code-kata
