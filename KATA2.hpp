@@ -483,7 +483,7 @@ namespace kata77
 	using namespace std;
 
 	vector<int> solution(string s) 
-	{
+	{	//https://school.programmers.co.kr/learn/courses/30/lessons/70129#
 		vector<int> answer{0, 0};
 		int& number = answer[0];
 		int& zcount = answer[1];
@@ -519,6 +519,89 @@ namespace kata77
 			cnt1 = t1Cnt;
 		}
 
+
+		return answer;
+	}
+}
+
+namespace kata78
+{
+	using namespace std;
+
+	long long Fibonachi(int n)
+	{
+		// 메모리에 결과를 기록하여 결과 단축
+		static vector<long long> memo(100001, -1);
+
+		if (n == 1) return 1;
+		else if (n == 0) return 0;
+		if (memo[n] != -1) return memo[n];
+
+		return memo[n] = (Fibonachi(n - 1) + Fibonachi(n - 2)) % 1234567L;
+	}
+
+	int solution(int n) 
+	{
+		int answer = Fibonachi(n) % 1234567L;
+		return answer;
+	}
+}
+
+namespace kata79
+{
+	vector<int> solution(int brown, int yellow) 
+	{	//https://school.programmers.co.kr/learn/courses/30/lessons/42842
+		// 가로 길이가 세로와 같거나 길다.
+		// 노란 색이 인접한 다른 노란 색 면 한 면 당 brown 3 이 줄어든다.
+
+		int sqrtY = sqrt(yellow);
+		int brownHalf = brown / 2;
+		vector<int> answer;
+
+		for (int i = 1; i <= sqrtY; i++)
+		{
+			div_t res = div(yellow, i);  // yellow / i → 몫(res.quot), 나머지(res.rem)
+			if (res.rem != 0) 
+				continue;  // 나머지가 0이 아니면 약수가 아님
+
+			int col = res.quot; // 몫
+
+			if (brownHalf == i + col + 2)
+			{
+				answer = { col + 2,  i + 2 }; // 노란 박스의 가로 세로 길이가 된다.
+
+				break;
+			}
+		}
+
+
+		return answer;
+	}
+}
+
+namespace kata80
+{
+	int solution(int n, int a, int b)
+	{ //https://school.programmers.co.kr/learn/courses/30/lessons/12985
+		int answer = 1;
+
+		while (true)
+		{
+			if (a & 1)
+				++a;
+			if (b & 1)
+				++b;
+
+			if (a == b)
+			{
+				break;
+			}
+
+			a >>= 1;    // 나누기 2;
+			b >>= 1;
+
+			++answer;
+		}
 
 		return answer;
 	}
