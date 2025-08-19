@@ -708,6 +708,81 @@ namespace kata83
 	}
 }
 
+namespace kata84
+{ //https://school.programmers.co.kr/learn/courses/30/lessons/76502
+	int pushLeft(int pos, int max)
+	{
+		return pos + 1 < max ? pos + 1 : 0;
+	}
+
+
+	int solution(string s) 
+	{
+		int start = 0;
+		int end = s.size() - 1;
+
+		// 열지 않았는데 닫으면 아웃
+		// 연만큼 닫지 못하면 아웃
+		// 마지막으로 연 괄호랑 다른 종류의 닫기가 나오면 아웃
+		int answer = 0;
+		int flags[3] = {0, 0, 0};
+		vector<char> protectStack;
+		protectStack.reserve(s.size());
+
+		for(int i = 0; i < s.size() - 1; i++)
+		{
+			bool check = true;
+			for(int j = 0, index = start; j<s.size(); j++, index++)
+			{
+				if (index >= s.size())
+					index = 0;
+
+				char currentProtect = s[index];
+
+				// 여는 괄호면 push
+				if (currentProtect == '(' || currentProtect == '{' || currentProtect == '[')
+				{
+					protectStack.push_back(currentProtect);
+					continue; 
+				}
+
+				// 닫는 괄호
+				if (protectStack.empty()) 
+				{
+					check = false;
+					break;
+				}
+
+				char openProt = protectStack.back();
+				protectStack.pop_back();
+
+				// 매칭 확인
+				if (!((openProt == '(' && currentProtect == ')') ||
+					(openProt == '{' && currentProtect == '}') ||
+					(openProt == '[' && currentProtect == ']')))
+				{
+					check = false;
+					break;
+				}
+				
+			}
+
+
+
+			if (check && protectStack.empty())
+				++answer;
+
+			protectStack.clear();
+			start = pushLeft(start, s.size()-1);
+			end = pushLeft(end, s.size()-1);
+		}
+
+
+
+		return answer;
+	}
+}
+
 #pragma endregion KATA_0819
 
 
