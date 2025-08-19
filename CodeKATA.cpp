@@ -35,5 +35,6 @@ int main()
 	//kata71::solution("2020.01.01", { "Z 3", "D 12" }, { "2019.01.01 D", "2019.11.15 Z", "2019.08.02 D", "2019.07.01 D", "2018.12.28 Z"});
 	//kata71::solution("2000.12.28", { "A 1" }, { "2000.11.27 A"});
 	//kata72::solution({ "mumu", "soe", "poe", "kai", "mine" }, { "kai", "kai", "mine", "mine" });
-	kata73::solution({ "OOS","OOO","OOO" }, { "E 2","W 2", "S 2","E 3" });
+	//kata73::solution({ "OOS","OOO","OOO" }, { "E 2","W 2", "S 2","E 3" });
+	kata75::solution("-1 -2 -3 -4");
 }

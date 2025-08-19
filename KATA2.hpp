@@ -370,6 +370,163 @@ namespace kata74
 
 #pragma endregion KATA_0818
 
+#pragma region KATA_0819
+
+namespace kata75
+{ // https://school.programmers.co.kr/learn/courses/30/lessons/12939
+		// 0 같다, 1 a가 크다 -1 a가 작다
+	int CompareStringInt(string_view a, string_view b)
+	{
+		bool aNagative = a[0] == '-';
+		bool bNagative = b[0] == '-';
+
+		if (aNagative != bNagative)
+		{
+			if (aNagative) return -1;
+			else if (bNagative) return 1;
+		}
+
+		int biggerNoSign = 0;
+
+		if (a.size() != b.size())
+		{
+			if (a.size() > b.size())
+				biggerNoSign = 1;
+
+			else if (a.size() < b.size())
+				biggerNoSign = -1;
+
+			return aNagative ? biggerNoSign * -1 : biggerNoSign;
+		}
+
+		// 부호도 길이도 같은 경우
+		int startIndex = aNagative ? 1 : 0;
+
+		for (int i = startIndex; i < a.size(); i++)
+		{
+			if (a[i] > b[i])
+			{
+				biggerNoSign = 1;
+				break;
+			}
+			else if (a[i] < b[i])
+			{
+				biggerNoSign = -1;
+				break;
+			}
+		}
+		return aNagative ? biggerNoSign * -1 : biggerNoSign;
+	}
+
+	string solution(string s)
+	{
+		string_view max = "0";
+		string_view min = "999999999";
+
+		int start = 0;
+		while (true)
+		{
+			int pos = s.find(' ', start);
+
+			// 공백 또는 문자열 끝까지의 뷰
+			std::string_view word(s.data() + start,
+				(pos == string::npos ? s.size() : pos) - start);
+
+			if (!word.empty())
+			{
+				if (1 == CompareStringInt(max, word))
+					max = word;
+				if (1 == CompareStringInt(min, word))
+					min = word;
+			}
+
+			if (pos == std::string::npos) break; // 끝 도달
+			start = pos + 1; // 다음 단어 시작
+		}
+
+
+		string answer;
+		answer.reserve(max.size() + 1 + min.size()); // 메모리 한 번만 할당
+		answer.append(min);
+		answer.push_back(' ');
+		answer.append(max);
+		return answer;
+	}
+}
+
+namespace kata76
+{	//https://school.programmers.co.kr/learn/courses/30/lessons/12951
+	string solution(string s) 
+	{
+		bool first = true;    
+		for (char& c : s)
+		{
+			if (c == ' ')
+			{
+				first = true;
+			}
+			else if (first)
+			{
+				c = toupper(c);
+				first = false;
+			}
+			else
+				c = tolower(c);
+
+		}
+		return s;
+	}
+}
+
+namespace kata77
+{
+	using namespace std;
+
+	vector<int> solution(string s) 
+	{
+		vector<int> answer{0, 0};
+		int& number = answer[0];
+		int& zcount = answer[1];
+
+		//1 개수는 제거후 남은 개수
+
+		unsigned int cnt1 = count(s.begin(), s.end(), '1');
+		zcount = s.size() - (int)cnt1;
+		++number;
+
+		if (cnt1 < 2)
+			return answer;
+
+		unsigned int t1Cnt = 0;
+		while (true)
+		{
+			t1Cnt = 0;
+			// 개수의 1개수
+			int pos = 0;
+			while (cnt1) 
+			{
+				if (cnt1 & 1u)
+					++t1Cnt;
+				cnt1 >>= 1;
+				pos++;
+			}
+			zcount += pos - t1Cnt;
+
+			++number;
+			if (t1Cnt == 1) 
+				break;
+
+			cnt1 = t1Cnt;
+		}
+
+
+		return answer;
+	}
+}
+
+
+#pragma endregion KATA_0819
+
 
 //#pragma region KATA_
 //#pragma endregion KATA_
