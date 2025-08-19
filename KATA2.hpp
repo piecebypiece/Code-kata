@@ -607,6 +607,106 @@ namespace kata80
 	}
 }
 
+namespace kata81
+{
+	//https://school.programmers.co.kr/learn/courses/30/lessons/12953
+	int solution(vector<int> arr) 
+	{
+		vector<int> multi(arr.size(), 1);
+
+
+		int index = arr.size() - 1;
+		while (true)
+		{
+			if (index == 0)
+			{
+				break;
+			}
+			int prev = index - 1;
+
+			if (arr[index] == 1)
+			{
+				break;
+			}
+
+			while(arr[prev] * multi[prev] < arr[index] * multi[index])
+			{
+				multi[prev] = multi[prev] + 1;
+			}
+
+			if (arr[prev] * multi[prev] == arr[index] * multi[index])
+			{
+				--index;
+			}
+			else
+			{
+				index = arr.size()-1;
+				++multi[index];
+			}
+		}
+
+		return arr[0] * multi[0];
+	}
+}
+
+namespace kata82
+{	// https://school.programmers.co.kr/learn/courses/30/lessons/12914
+	// 피보나치 수열 나머지와 완전히 같은 코드.
+	long long GetBariation(int n)
+	{
+		static vector<long long> memo(2001, -1);
+		if (n == 2) return 2;
+		if (n == 1) return 1;
+		if (memo[n] != -1) return memo[n];
+		return memo[n] = (GetBariation(n - 1) + GetBariation(n - 2)) % 1234567L;
+	}
+
+	long long solution(int n) 
+	{
+		long long answer = GetBariation(n) % 1234567L;
+		return answer;
+	}
+}
+
+namespace kata83
+{ //https://school.programmers.co.kr/learn/courses/30/lessons/138476
+	int solution(vector<int> arr) 
+	{
+		vector<int> multi(arr.size(), 1);
+
+
+		int index = arr.size() - 1;
+		while (true)
+		{
+			if (index == 0)
+			{
+				break;
+			}
+			int prev = index - 1;
+
+			if (arr[prev] == 1)
+			{
+				break;
+			}
+
+			while(arr[prev] * multi[prev] < arr[index] * multi[index])
+			{
+				multi[prev] = multi[prev] + 1;
+			}
+
+			if (arr[prev] * multi[prev] == arr[index] * multi[index])
+			{
+				--index;
+			}
+			else
+			{
+				++multi[index];
+			}
+		}
+
+		return arr[0] * multi[0];
+	}
+}
 
 #pragma endregion KATA_0819
 
