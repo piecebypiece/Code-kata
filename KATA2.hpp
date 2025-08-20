@@ -4,6 +4,7 @@
 #include <map>
 #include <unordered_map>
 #include <string>
+#include <unordered_set>
 
 using namespace std;
 
@@ -785,6 +786,38 @@ namespace kata84
 
 #pragma endregion KATA_0819
 
+#pragma region KATA_0820
+
+namespace kata85
+{
+
+	using namespace std;
+
+	int solution(vector<int> elements) 
+	{
+		int n = elements.size();
+		vector<int> prefix(2 * n + 1, 0);
+		// 메모라이징 고속화
+		for (int i = 0; i < 2 * n; i++) 
+		{
+			prefix[i+1] = prefix[i] + elements[i % n];
+		}
+
+		unordered_set<int> s;
+		for (int len = 1; len <= n; len++) 
+		{
+			for (int start = 0; start < n; start++) 
+			{
+				int sum = prefix[start + len] - prefix[start];
+				s.insert(sum);
+			}
+		}
+
+		return s.size();
+	}
+}
+
+#pragma endregion KATA_0820
 
 //#pragma region KATA_
 //#pragma endregion KATA_
