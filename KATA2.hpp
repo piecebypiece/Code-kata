@@ -844,6 +844,34 @@ namespace kata86
 		return answer;
 	}
 }
+
+namespace kata87
+{
+	using namespace std;
+
+
+	vector<int> solution(int n, long long left, long long right) 
+	{
+
+		// left, right 는 1차원
+		// 1차원을 2차원으로 변경
+		// 이 위치가 0,0 부터 각 차원에서 먼 값중 큰 값이 이 값이 된다.
+
+		vector<int> answer;
+
+		int length = right - left + 1;
+		answer.reserve(length);
+
+		for (long long i = 0; i < length; i++)
+		{
+			long long indexLine = i + left;
+			auto divResult = div(indexLine, (long long)n);
+			long long maxDis = max(divResult.quot, divResult.rem);
+			answer.push_back(maxDis + 1);
+		}
+		return answer;
+	}
+}
 #pragma endregion KATA_0821
 //#pragma region KATA_
 //#pragma endregion KATA_

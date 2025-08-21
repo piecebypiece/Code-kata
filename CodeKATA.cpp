@@ -37,5 +37,6 @@ int main()
 	//kata72::solution({ "mumu", "soe", "poe", "kai", "mine" }, { "kai", "kai", "mine", "mine" });
 	//kata73::solution({ "OOS","OOO","OOO" }, { "E 2","W 2", "S 2","E 3" });
 	
-	kata84::solution("[](){}");
+	//kata84::solution("[](){}");
+	kata87::solution( 3, 2, 5 );
 }
