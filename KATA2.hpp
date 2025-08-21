@@ -819,6 +819,32 @@ namespace kata85
 
 #pragma endregion KATA_0820
 
+#pragma region KATA_0821
+namespace kata86
+{
+	using namespace std;
+
+	int solution(vector<int> citations)
+	{
+		sort(citations.begin(), citations.end(), [](int x, int y)
+		{
+			return x > y;
+		});
+
+		int answer = 0;
+		for (int i = 0; i < citations.size(); i++, answer++)
+		{
+			if (citations[i] < i + 1)
+			{
+				break;
+			}
+		}
+
+
+		return answer;
+	}
+}
+#pragma endregion KATA_0821
 //#pragma region KATA_
 //#pragma endregion KATA_
 //https://github.com/piecebypiece/Code-kata
