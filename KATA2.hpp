@@ -873,6 +873,41 @@ namespace kata87
 	}
 }
 #pragma endregion KATA_0821
+
+#pragma region KATA_0822
+namespace kata88
+{
+	vector<vector<int>> solution(vector<vector<int>> arr1, vector<vector<int>> arr2) 
+	{
+		// 앞 행렬의 행
+		// 뒷 행렬의 열을 가진 2차원 행렬이 답이된다.
+
+		int row = arr1.size();
+		int col = arr2.front().size();
+		int multiCnt = arr1.front().size();
+		vector<vector<int>> answer(row, vector<int>(col, 0));
+
+		for (int i = 0; i < row; i ++)
+		{
+			for (int j = 0; j < col; j++)
+			{
+				
+				// n, m 의 행렬값은
+				// arr1 i 행 값과 arr2 j열 의 각 값을 곱하고 그 모두를 더한 것.
+				// 그래서 arr1의 열개수 == arr2의 행 개수 여야 하고 이는 문제에서 보장해줌
+				int value = 0;
+				for (int k = 0; k < multiCnt; k++)
+				{
+					value += arr1[i][k] * arr2[k][j];
+				}
+				answer[i][j] = value;
+			}
+		}
+
+		return answer;
+	}
+}
+#pragma endregion KATA_0822
 //#pragma region KATA_
 //#pragma endregion KATA_
 //https://github.com/piecebypiece/Code-kata
