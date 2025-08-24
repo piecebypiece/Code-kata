@@ -38,5 +38,7 @@ int main()
 	//kata73::solution({ "OOS","OOO","OOO" }, { "E 2","W 2", "S 2","E 3" });
 	
 	//kata84::solution("[](){}");
-	kata87::solution( 3, 2, 5 );
+	//kata87::solution( 3, 2, 5 );
+	//kata89::solution({ "apple" }, { 10 }, { "banana", "banana", "banana", "banana", "banana", "banana", "banana", "banana", "banana", "banana" });
+	kata91::solution({ 93, 30, 55 }, { 1, 30, 5 });
 }

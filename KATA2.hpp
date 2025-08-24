@@ -907,7 +907,139 @@ namespace kata88
 		return answer;
 	}
 }
+
+namespace kata89
+{
+	using namespace std;
+
+	int solution(vector<string> want, vector<int> number, vector<string> discount)
+	{
+		// 각 품목마다 10일 가능한 날짜들중 모두가 겹칠 수 있는 날
+		//
+		// 각 품목별 10일 이내에 할인 하는 날짜를 기록한다
+		// 반대로 각 날짜별 그날부터 10일간 구매 가능한 품목을 기록한다// 1회 순회로 완성
+		// 모든 항목 숫자를 커버할 수 있는 날짜를 찾아서 반환한다.
+
+		// 각 날짜, 종류들, 종류별 개수
+		// 종목별, 존재 날짜
+
+		//unordered_map<string, vector<int>> discountTable;
+		unordered_map<string, int> discountTable;
+		discountTable.reserve(discount.size() - 9);
+
+		auto isValid = [&](unordered_map<string,int>& table) 
+		{
+			for (int j = 0; j < want.size(); j++) 
+			{
+				if (table[want[j]] < number[j]) 
+					return false;
+			}
+			return true;
+		};
+
+		int answer = 0;
+		const int window = 10;
+		for (int i = 0; i < window; i++)
+		{
+			++discountTable[discount[i]];
+		}
+
+		if (isValid(discountTable)) answer++;
+
+		for (int i = 1; i + window - 1 < discount.size(); i++)
+		{
+			--discountTable[discount[i - 1]];
+			++discountTable[discount[i + window - 1]];
+
+			if (isValid(discountTable)) answer++;
+		}
+
+		return answer;
+	}
+
+		
+}
 #pragma endregion KATA_0822
+
+#pragma region KATA_0824
+namespace kata90
+{
+	int factorial(int n) 
+	{
+		int result = 1;
+		for (int i = 2; i <= n; i++) result *= i;
+		return result;
+	}
+
+	int solution(vector<vector<string>> clothes) 
+	{
+		// n개 종류를 중복없이 m개 선택하면
+		// n! / m!(n-m)! 이 된다.
+
+		// i 번째 요소를 반드시 포함 한 중복없는 조합의 개수
+		// n - 1, m  의식으로 결정됨 따라서 요소의 개수만큼 곱하고
+		// (n - 1, m) * 요소개수 + (n - 1, m- 1) 식 (i 번째 요소를 제외한 나머지 조합)
+		// 모든 상태 개수 * (n - 1, m)
+		unordered_map<string, int> clothesMap;
+
+		for (const vector<string>& v : clothes)
+		{
+			clothesMap[v[1]]++;
+		}
+
+		int answer = 1;
+		for (const pair<string, int>& p : clothesMap)
+		{
+			answer *=  (1 + p.second);
+		}
+		answer -= 1;
+
+
+		return answer;
+	}
+}
+
+namespace kata91
+{
+	vector<int> solution(vector<int> progresses, vector<int> speeds) 
+	{   
+ 
+		vector<int> answer;
+		int day = 0;
+		int index = 0;
+		while(true)
+		{
+
+			for (int i =0; i < progresses.size(); i++)
+			{
+				progresses[i] += speeds[i];
+			}
+
+			int complete = 0;
+			for (int i = index; i < progresses.size(); i++)
+			{
+				if (progresses[i] >= 100)
+				{
+					complete++;
+				}
+				else
+				{
+					break;
+				}
+			}
+			if (complete == 0) continue;
+			index += complete;
+			answer.push_back(complete);
+
+			if (index >= progresses.size())
+				break;
+		}
+		
+
+		return answer;
+	}
+}
+#pragma endregion KATA_0824
 //#pragma region KATA_
 //#pragma endregion KATA_
 //https://github.com/piecebypiece/Code-kata
