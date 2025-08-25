@@ -1040,6 +1040,69 @@ namespace kata91
 	}
 }
 #pragma endregion KATA_0824
+
+#pragma region KATA_0825
+namespace kata92 
+{
+	using namespace std;
+
+	int solution(vector<int> priorities, int location) 
+	{
+		// 실행 순서 = 자신 보다 높은 우선 순위 개수 + 마지막 실행위치 기준 같은 우선순위의 앞 순번
+
+		// 자신과 같은 우선순위의 프로세스가 없으면 자신 보다 높은 우선 순위 개수 + 1
+		// 있는 경우.
+
+		map<int, vector<int>> indexMap;
+		for (int i =0; i < priorities.size(); i++)
+		{
+			indexMap[priorities[i]].push_back(i);
+		}
+
+		int targetPriority = priorities[location];
+
+		int answer = 0;
+		int nowIndex = priorities.size();
+		for (auto iter = indexMap.rbegin(); iter != indexMap.rend(); ++iter)
+		{
+			vector<int>& indexVec = iter->second;
+			int priorityIndex = -1;
+
+			//cout << "start : " << iter->first;
+			// indexVec[j] == 0 ? indexVec.back() 
+
+			auto it = upper_bound(indexVec.begin(), indexVec.end(), nowIndex);
+			// nowIndex보다 큰 원소가 없거나 첫 번째이면 맨 뒤 원소가 마지막
+			// 있으면 그 직전 원소가 마지막
+			priorityIndex = (it == indexVec.begin() ? indexVec.size() - 1 : (it - indexVec.begin()) - 1);
+			nowIndex = indexVec[priorityIndex];
+
+			if (iter->first == targetPriority)
+			{   // nowIndex 와의 거리 사이에 있는 이번 우선순위 요소 수 + 여태 지나온 개수
+				int distance = 0; 
+				// priorityIndex + 1 == 출발 인덱스
+				auto iterVec = indexVec.begin() + (priorityIndex + 1);
+				for (int j = 0; j < indexVec.size(); j++, distance++, iterVec++)
+				{
+					if (iterVec == indexVec.end())
+						iterVec = indexVec.begin();
+					if (*iterVec == location)
+					{
+						break;
+					}
+				}
+				//cout << ", dis : " << distance << ", priorityIndex : " << priorityIndex << endl;;
+				// 스스로가 처리되는 거 + 거리
+				answer += distance + 1;
+				break;    
+			}
+			answer += indexVec.size();
+		}
+
+		return answer;
+	}
+}
+#pragma endregion KATA_0825
 //#pragma region KATA_
 //#pragma endregion KATA_
 //https://github.com/piecebypiece/Code-kata

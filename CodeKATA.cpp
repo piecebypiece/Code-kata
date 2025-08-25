@@ -40,5 +40,10 @@ int main()
 	//kata84::solution("[](){}");
 	//kata87::solution( 3, 2, 5 );
 	//kata89::solution({ "apple" }, { 10 }, { "banana", "banana", "banana", "banana", "banana", "banana", "banana", "banana", "banana", "banana" });
-	kata91::solution({ 93, 30, 55 }, { 1, 30, 5 });
+	//kata91::solution({ 93, 30, 55 }, { 1, 30, 5 });
+	kata92::solution({ 7, 6, 8, 9, 8, 6, 7}, 4);
+	kata92::solution({ 1, 3, 2, 2, 1}, 2);
+	//867768
+	//6776
+	//66
 }
