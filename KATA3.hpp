@@ -37,6 +37,29 @@ namespace kata93
         return AnswerFind(k, dungeons, used, 0);
     }
 }
+namespace kata94
+{
+    using namespace std;
+
+    int dfs(const vector<int>& numbers, int target, int check, int i)
+    {
+        int count = 0;
+        if  ( i == numbers.size())
+        {
+            //cout << (check == target ? "t" : "F") << endl;
+            return check == target ? 1 : 0;
+        }
+
+        count += dfs(numbers,  target, check + numbers[i], i + 1);
+        count += dfs(numbers,  target, check - numbers[i], i + 1);
+        return count;
+    }
+
+    int solution(vector<int> numbers, int target) 
+    {
+        return dfs(numbers, target, 0, 0);;
+    }
+}
 #pragma endregion KATA_0826
 //#pragma region KATA_
 //#pragma endregion KATA_
