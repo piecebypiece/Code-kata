@@ -5,6 +5,7 @@
 #include <string>
 #include "KATA.hpp"
 #include "KATA2.hpp"
+#include "KATA3.hpp"
 using namespace std;
 int main()
 {
