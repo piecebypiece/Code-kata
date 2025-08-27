@@ -61,6 +61,116 @@ namespace kata94
     }
 }
 #pragma endregion KATA_0826
+#pragma region KATA_0827
+namespace kata95
+{
+    using namespace std;
+
+    string decimalToK(int decimal, int K) 
+    {    
+        // 0인 경우 바로 처리
+        if(K == 10) 
+        {
+            return to_string(decimal);
+        }
+
+        string result;
+        int num = decimal;
+
+        // 진법 변환 수행
+        while(num > 0) 
+        {
+            auto divResult = div(num, K);
+
+            int remainder = divResult.rem;
+            result += to_string(remainder);  // 숫자를 문자열로 변환하여 추가
+            num = divResult.quot;  // 몫으로 갱신
+        }
+
+        // 나머지를 역순으로 정렬 (가장 마지막 계산이 가장 높은 자리수)
+        reverse(result.begin(), result.end());
+
+        return result;
+    }
+
+    vector<string> splitByZero(const string& str)
+    {
+        vector<string> parts;
+        string current;
+
+        bool checkZero = false;
+
+        for(char c : str)
+        {
+            if(c == '0')
+            {
+                if(!current.empty())
+                {
+                    parts.push_back(current);
+                    current.clear();
+                }
+                checkZero = true;
+            }
+            else
+            {
+                current += c;
+            }
+        }
+
+        if(!current.empty() && checkZero)
+        {
+            parts.push_back(current);
+        }
+
+        return parts;
+    }
+
+    int countPrimes(const vector<string>& numbers) 
+    {
+        int count = 0;
+
+        for (const string& numStr : numbers) 
+        {
+            // 문자열을 숫자로 변환
+            long long num = stoll(numStr);
+            if (num <= 1) continue;
+            // 2보다 작은 수는 소수가 아님
+            if (num == 2)
+            {
+                count++;
+                continue;
+            }
+
+            // 짝수는 소수가 아님
+            if (num % 2 == 0) continue;
+
+            // 홀수에 대해서만 제곱근까지 검사
+            bool isPrime = true;
+            long long sqrtNum = floor(sqrt((long double)num));
+
+            for (long long i = 3; i <= sqrtNum; i += 2) 
+            {
+                if (num % (long long)i == 0) 
+                {
+                    isPrime = false;
+                    break;
+                }
+            }
+
+            if (isPrime) count++;
+        }
+
+        return count;
+    }
+
+    int solution(int n, int k) 
+    {
+        string kNumber = decimalToK(n, k);
+        vector<string> v = splitByZero(kNumber);
+        return v.size() == 0 ? 0 : countPrimes(v);
+    }
+}
+#pragma endregion KATA_0827
 //#pragma region KATA_
 //#pragma endregion KATA_
 //https://github.com/piecebypiece/Code-kata

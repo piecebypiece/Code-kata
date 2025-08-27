@@ -29,5 +29,8 @@
     <ClInclude Include="KATA2.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="KATA3.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
