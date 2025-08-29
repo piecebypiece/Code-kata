@@ -257,6 +257,52 @@ namespace kata96
 
 #pragma endregion KATA_0828
 
+#pragma region KATA_0829
+namespace kata97
+{
+	using namespace std;
+
+	int counter = 0;              // 몇 번째인지 세는 변수
+	vector<int> target;           // 찾고 싶은 경로
+	bool found = false;           // 찾았는지 여부
+
+	void dfs(int depth, vector<int>& path, int N) 
+	{
+		if (found || depth > N) return; // 이미 찾았으면 중단
+
+
+		counter++; // 경로
+		if (path == target)
+		{
+			found = true;
+			return;
+		}
+
+		// 가능한 선택지 (예시: 1~N)
+		for (int i = 0; i < N; i++) 
+		{
+			path.push_back(i);
+			dfs(depth + 1, path, N);
+			path.pop_back();
+		}
+	}
+
+
+	int solution(string word) 
+	{
+		const string dict = "AEIOU";
+
+		for (char c : word)
+		{
+			target.push_back(dict.find(c));
+		}
+		vector<int> path;
+		path.reserve(dict.size());
+		dfs(0, path, dict.size());
+		return   counter;
+	}
+}
+#pragma endregion KATA0829
 //#pragma region KATA_
 //#pragma endregion KATA_
 //https://github.com/piecebypiece/Code-kata
