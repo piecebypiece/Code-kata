@@ -10,5 +10,6 @@ using namespace std;
 int main()
 {
 	//kata95::solution(10000, 10);
-	kata97::solution("AAAAE");
+	
+	kata98::solution({ 2,3,3,5 });
 }

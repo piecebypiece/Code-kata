@@ -302,7 +302,47 @@ namespace kata97
 		return   counter;
 	}
 }
-#pragma endregion KATA0829
+#pragma endregion KATA_0829
+#pragma region KATA_0901
+
+namespace kata98
+{
+	using namespace std;
+	vector<int> solution(vector<int> numbers)
+	{
+
+		vector<int> answer(numbers.size(), -1);
+		map<int, vector<int>> searchIndex;
+		
+		searchIndex[numbers.front()] =  { 0 };
+
+		for (int i = 1; i < numbers.size(); i++)
+		{
+			//numbers[i] 이 값보다 작은 대기중 인덱스들은 모두 이값으로 변경한다
+			int number = numbers[i];
+
+			searchIndex[number].push_back(i);
+			
+
+			auto numberIter = searchIndex.find(number);
+			auto iter = make_reverse_iterator(numberIter);
+			if (iter != searchIndex.rend())
+			{
+				for (; iter != searchIndex.rend(); iter++)
+				{
+					auto& vec = iter->second;
+					for (int tIndex : vec)
+					{
+						answer[tIndex] = number;
+					}
+				}
+				searchIndex.erase(searchIndex.begin(), searchIndex.lower_bound(number));
+			}
+		}
+		return answer;
+	}
+}
+#pragma endregion KATA_0901
 //#pragma region KATA_
 //#pragma endregion KATA_
 //https://github.com/piecebypiece/Code-kata
