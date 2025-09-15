@@ -343,6 +343,50 @@ namespace kata98
 	}
 }
 #pragma endregion KATA_0901
+
+#pragma region KATA_0915
+
+namespace kata99
+{
+	using namespace std;
+
+	int solution(vector<int> topping)
+	{
+		int answer = 0;
+
+		unordered_map<int, int> kindCounterMap;
+
+		for (int top : topping)
+		{
+			kindCounterMap[top]++;
+		}
+
+		unordered_map<int, int> splitCountMap;
+
+		int leftCnt = 0, rightCnt = 0;
+		leftCnt = kindCounterMap.size();
+		for (int i = topping.size() - 1; i >= 0; i--)
+		{
+			int top = topping[i];
+			splitCountMap[top]++;
+			kindCounterMap[top]--;
+			
+			if (kindCounterMap[top] == 0)
+			{
+				kindCounterMap.erase(top);
+			}
+
+			if (kindCounterMap.size() == splitCountMap.size())
+			{
+				answer++;
+			}
+		}
+
+		return answer;
+	}
+}
+
+#pragma endregion KATA_0915
 //#pragma region KATA_
 //#pragma endregion KATA_
 //https://github.com/piecebypiece/Code-kata
