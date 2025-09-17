@@ -9,6 +9,7 @@
 #include <chrono>
 #include <charconv>
 
+#include <queue>
 #pragma region KATA_0826
 namespace kata93
 {
@@ -387,6 +388,41 @@ namespace kata99
 }
 
 #pragma endregion KATA_0915
+
+#pragma region KATA_0917
+namespace kata100
+{
+	int solution(int x, int y, int n) 
+	{
+		if (x == y) return 0;
+
+		vector<bool> visited(y + 1, false);
+		queue<pair<int, int>> q;
+		q.push({x, 0});
+		visited[x] = true;
+
+		while (!q.empty()) 
+		{
+			auto [current, cnt] = q.front();
+			q.pop();
+
+			// 세 가지 연산 시도
+			int operations[] = {current * 3, current * 2, current + n};
+
+			for (int nextVal : operations) 
+			{
+				if (nextVal == y) return cnt + 1;
+				if (nextVal > y || visited[nextVal]) continue;
+
+				visited[nextVal] = true;
+				q.push({nextVal, cnt + 1});
+			}
+		}
+
+		return -1;
+	}
+}
+#pragma endregion KATA_0917
 //#pragma region KATA_
 //#pragma endregion KATA_
 //https://github.com/piecebypiece/Code-kata
