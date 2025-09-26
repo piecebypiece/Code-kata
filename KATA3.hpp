@@ -423,6 +423,86 @@ namespace kata100
 	}
 }
 #pragma endregion KATA_0917
+
+#pragma region KATA_0926
+namespace kata101
+{
+	using namespace std;
+
+	int MSB(long long checker)
+	{
+		int cnt = 0;
+		while(checker > 0)
+		{
+			checker >>= 1;
+			++cnt;
+		}
+		return cnt;
+	}
+
+	long long TwoBitDiffMinimum(long long number)
+	{
+		// 이진 수에서 
+		// 가장 큰 비트의 1까지의 비트 개수 내에서 1의 개수가 많거나
+		// 더 큰 비트에서 1이 더 있거나
+
+		// 우측부터 0 자리에 1을 넣기.
+		// 빈 자리가 없는 경우가 아니라면 
+		//most significant bit
+		// c++ 20 이상 안되면 우측 쉬프트 해서 0 될 때까지 실행하고 횟수 카운트
+
+		//int retval = 0;
+		//int msb = MSB(number); 
+		//long long shifter = 1;
+		//for (int i = 0; i < msb; i++, shifter <<= 1)
+		//{
+		//	if ((number & shifter) == 0)
+		//	{
+		//		// 이 비트 자리가 0이라는 뜻
+		//		retval = number | shifter;
+		//		break;
+		//	}
+		//}
+		//if (retval == 0)
+		//{
+		//	retval = number | shifter;
+		//}
+
+		//// 1 개수를 늘렸음으로 하나 다름 
+		//// 늘린 비트 위치 에서 다시 0 비트까지 내려가면서 1인 걸 0으로 변경
+		//// 다 내려갈 필요없고 한 자리 옆이면 된다.
+		//if ((shifter >>= 1) > 0)
+		//{
+		//	retval = retval & ~shifter;
+		//}
+		//return retval;
+
+		if (number == 0) return 1;
+		if ((number & 1LL) == 0) return number + 1;            // 짝수
+
+		// 홀수: 꼬리 1의 개수 t 찾기 = 처음 만나는 0의 위치 s=1<<t
+		long long s = 1;
+		while (number & s) s <<= 1;
+
+		// 그 0을 1로 켜고, 바로 아래 비트를 0으로 끈 결과와 동일
+		// 수식으로는 number + (s >> 1)
+		return (number | s) & ~(s >> 1);
+	}
+
+	vector<long long> solution(vector<long long> numbers) 
+	{
+		vector<long long> answer;
+		answer.reserve(numbers.size());
+
+		for (auto number : numbers)
+			answer.push_back(TwoBitDiffMinimum(number));
+
+
+		return answer;
+	}
+}
+#pragma endregion KATA_0926
+
 //#pragma region KATA_
 //#pragma endregion KATA_
 //https://github.com/piecebypiece/Code-kata

@@ -11,6 +11,5 @@ int main()
 {
 	//kata95::solution(10000, 10);
 	
-	kata98::solution({ 2,3,3,5 });
-	kata100::solution(10, 40, 5);
+	kata101::solution({ 2 } );
 }
