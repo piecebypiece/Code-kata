@@ -223,12 +223,11 @@ namespace kata96
 			parkingMinentMap[pair.first] += (maxTimeMinute - pair.second);
 		}
 
-
 		vector<int> answer;
 		answer.reserve(parkingMinentMap.size());
 
 		// fees = 기본 시간(분),	기본 요금(원),	단위 시간(분),	단위 요금(원)
-		// 기본시간 이내면 기본 요금 그 위 의 단위시간 초과분 마다 단위 요금 
+		// 기본시간 이내면 기본 요금 그 위 의 단위시간 초과분 마다 단위 요금
 
 		for (const pair<string_view, int>& pair : parkingMinentMap)
 		{
@@ -246,7 +245,6 @@ namespace kata96
 				fee += divResult.quot * fees[3];
 				if (divResult.rem > 0)
 					fee += fees[3];
-
 			}
 
 			answer.push_back(fee);
@@ -267,10 +265,9 @@ namespace kata97
 	vector<int> target;           // 찾고 싶은 경로
 	bool found = false;           // 찾았는지 여부
 
-	void dfs(int depth, vector<int>& path, int N) 
+	void dfs(int depth, vector<int>& path, int N)
 	{
 		if (found || depth > N) return; // 이미 찾았으면 중단
-
 
 		counter++; // 경로
 		if (path == target)
@@ -280,7 +277,7 @@ namespace kata97
 		}
 
 		// 가능한 선택지 (예시: 1~N)
-		for (int i = 0; i < N; i++) 
+		for (int i = 0; i < N; i++)
 		{
 			path.push_back(i);
 			dfs(depth + 1, path, N);
@@ -288,8 +285,7 @@ namespace kata97
 		}
 	}
 
-
-	int solution(string word) 
+	int solution(string word)
 	{
 		const string dict = "AEIOU";
 
@@ -311,11 +307,10 @@ namespace kata98
 	using namespace std;
 	vector<int> solution(vector<int> numbers)
 	{
-
 		vector<int> answer(numbers.size(), -1);
 		map<int, vector<int>> searchIndex;
-		
-		searchIndex[numbers.front()] =  { 0 };
+
+		searchIndex[numbers.front()] = { 0 };
 
 		for (int i = 1; i < numbers.size(); i++)
 		{
@@ -323,7 +318,6 @@ namespace kata98
 			int number = numbers[i];
 
 			searchIndex[number].push_back(i);
-			
 
 			auto numberIter = searchIndex.find(number);
 			auto iter = make_reverse_iterator(numberIter);
@@ -371,7 +365,7 @@ namespace kata99
 			int top = topping[i];
 			splitCountMap[top]++;
 			kindCounterMap[top]--;
-			
+
 			if (kindCounterMap[top] == 0)
 			{
 				kindCounterMap.erase(top);
@@ -392,30 +386,30 @@ namespace kata99
 #pragma region KATA_0917
 namespace kata100
 {
-	int solution(int x, int y, int n) 
+	int solution(int x, int y, int n)
 	{
 		if (x == y) return 0;
 
 		vector<bool> visited(y + 1, false);
 		queue<pair<int, int>> q;
-		q.push({x, 0});
+		q.push({ x, 0 });
 		visited[x] = true;
 
-		while (!q.empty()) 
+		while (!q.empty())
 		{
 			auto [current, cnt] = q.front();
 			q.pop();
 
 			// 세 가지 연산 시도
-			int operations[] = {current * 3, current * 2, current + n};
+			int operations[] = { current * 3, current * 2, current + n };
 
-			for (int nextVal : operations) 
+			for (int nextVal : operations)
 			{
 				if (nextVal == y) return cnt + 1;
 				if (nextVal > y || visited[nextVal]) continue;
 
 				visited[nextVal] = true;
-				q.push({nextVal, cnt + 1});
+				q.push({ nextVal, cnt + 1 });
 			}
 		}
 
@@ -432,7 +426,7 @@ namespace kata101
 	int MSB(long long checker)
 	{
 		int cnt = 0;
-		while(checker > 0)
+		while (checker > 0)
 		{
 			checker >>= 1;
 			++cnt;
@@ -442,23 +436,23 @@ namespace kata101
 
 	long long TwoBitDiffMinimum(long long number)
 	{
-		// 이진 수에서 
+		// 이진 수에서
 		// 가장 큰 비트의 1까지의 비트 개수 내에서 1의 개수가 많거나
 		// 더 큰 비트에서 1이 더 있거나
 
 		// 우측부터 0 자리에 1을 넣기.
-		// 빈 자리가 없는 경우가 아니라면 
+		// 빈 자리가 없는 경우가 아니라면
 		//most significant bit
 		// c++ 20 이상 안되면 우측 쉬프트 해서 0 될 때까지 실행하고 횟수 카운트
 
 		//int retval = 0;
-		//int msb = MSB(number); 
+		//int msb = MSB(number);
 		//long long shifter = 1;
 		//for (int i = 0; i < msb; i++, shifter <<= 1)
 		//{
 		//	if ((number & shifter) == 0)
 		//	{
-		//		// 이 비트 자리가 0이라는 뜻
+				// 이 비트 자리가 0이라는 뜻
 		//		retval = number | shifter;
 		//		break;
 		//	}
@@ -468,9 +462,9 @@ namespace kata101
 		//	retval = number | shifter;
 		//}
 
-		//// 1 개수를 늘렸음으로 하나 다름 
-		//// 늘린 비트 위치 에서 다시 0 비트까지 내려가면서 1인 걸 0으로 변경
-		//// 다 내려갈 필요없고 한 자리 옆이면 된다.
+		// 1 개수를 늘렸음으로 하나 다름
+		// 늘린 비트 위치 에서 다시 0 비트까지 내려가면서 1인 걸 0으로 변경
+		// 다 내려갈 필요없고 한 자리 옆이면 된다.
 		//if ((shifter >>= 1) > 0)
 		//{
 		//	retval = retval & ~shifter;
@@ -489,14 +483,13 @@ namespace kata101
 		return (number | s) & ~(s >> 1);
 	}
 
-	vector<long long> solution(vector<long long> numbers) 
+	vector<long long> solution(vector<long long> numbers)
 	{
 		vector<long long> answer;
 		answer.reserve(numbers.size());
 
 		for (auto number : numbers)
 			answer.push_back(TwoBitDiffMinimum(number));
-
 
 		return answer;
 	}

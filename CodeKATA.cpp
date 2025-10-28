@@ -3,13 +3,12 @@
 
 #include <iostream>
 #include <string>
-#include "KATA.hpp"
-#include "KATA2.hpp"
-#include "KATA3.hpp"
+#include "kata102.hpp"
 using namespace std;
 int main()
 {
 	//kata95::solution(10000, 10);
-	
-	kata101::solution({ 2 } );
+
+	int answer = solution(2, 10, { 7,4,5,6 });
+	cout << answer;
 }
