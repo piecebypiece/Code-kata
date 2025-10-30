@@ -137,6 +137,7 @@
   <ItemGroup>
     <ClInclude Include="KATA.hpp" />
     <ClInclude Include="kata102.hpp" />
+    <ClInclude Include="kata103.hpp" />
     <ClInclude Include="KATA2.hpp" />
     <ClInclude Include="KATA3.hpp" />
   </ItemGroup>
